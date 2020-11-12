@@ -4,8 +4,118 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
+        <title>Jared Pyzynski</title>
+        <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca');
+            @import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Lexend Deca';
+                font-size: 1em;
+                line-height: 1.5;
+                word-wrap: break-word;
+                color: darkgrey;
+                background-color: #121212;
+                margin: 2em;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            a:hover { text-decoration: underline; }
+
+            hr {
+                height: 2px;
+                display: block;
+                border: 0;
+                border-top: 2px solid;
+                width: 100%;
+            }
+
+            ::-moz-selection {
+                background: darkgrey;
+            }
+
+            ::selection {
+                background: darkgrey;
+            }
+
+            .unselectable {
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            header {}
+            footer {
+                position: absolute;
+                bottom: 0;
+                margin-bottom: 2em;
+            }
+
+            .navi {}
+
+            .navi > * {
+                display: inline;
+                margin-right: 0.1em;
+            }
+
+            .navi > .title {
+                text-transform: capitalize;
+                margin-right: 0.5em;
+            }
+
+            blockquote {
+                position: relative;
+            }
+
+            blockquote:before {
+                position: absolute;
+                content: open-quote;
+                font-size: 4em;
+                margin-left: -0.6em;
+                margin-top: -0.4em;
+            }
+
+            div.highlight {
+                margin-top: 40vh;
+                margin-bottom: 4em;
+            }
+
+            div.highlight > .icon {
+                font-size: 4em;
+            }
+
+            div.highlight > .quote {
+                max-width: 20em;
+            }
+        </style>
     </head>
     <body>
+        <div class="highlight unselectable">
+            <div class="icon">
+                <i class="fas fa-kiwi-bird"></i>
+            </div>
+            <blockquote class="quote">
+                That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
+            </blockquote>
+            <hr>
+            <div class="navi">
+                <h3 class="title">Jared Pyzynski</h3>
+                <h5><a href="">About</a></h5>
+                <h5><a href="">Projects</a></h5>
+                <h5><a href="">Contact</a></h5>
+                <h5><a href="">CV</a></h5>
+            </div>
+        </div>
     </body>
 </html>
