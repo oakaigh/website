@@ -5,123 +5,59 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Jared C</title>
-        <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+        <link rel="icon" href="assets/icon.svg">
+        <link rel="stylesheet" href="assets/main.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca');
-            @import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
-
-            * {
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: 'Lexend Deca';
-                font-size: 1em;
-                line-height: 1.5;
-                word-wrap: break-word;
-                margin: 2em;
-            }
-
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-
-            a:hover { text-decoration: underline; }
-
-            hr {
-                height: 2px;
-                display: block;
-                border: 0;
-                border-top: 2px solid;
-                width: 100%;
-            }
-
-            ::-moz-selection {
-                background: darkgrey;
-            }
-
-            ::selection {
-                background: darkgrey;
-            }
-
-            .dark {
-                color: darkgrey;
-                background-color: #121212;
-            }
-
-            .unselectable {
-                -moz-user-select: none;
-                -khtml-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            header {}
-            footer {
-                position: absolute;
-                bottom: 0;
-                margin-bottom: 2em;
-            }
-
-            .navi {}
-
-            .navi > * {
-                display: inline;
-                margin-right: 0.1em;
-            }
-
-            .navi > .title {
-                text-transform: capitalize;
-                margin-right: 0.5em;
-            }
-
-            blockquote {
-                position: relative;
-            }
-
-            blockquote:before {
-                position: absolute;
-                content: open-quote;
-                font-size: 4em;
-                margin-left: -0.6em;
-                margin-top: -0.4em;
-            }
-
-            div.highlight {
+            #intro-quote {
                 margin-top: 40vh;
                 margin-bottom: 4em;
             }
-
-            div.highlight > .icon {
-                font-size: 4em;
-            }
-
-            div.highlight > .quote {
-                max-width: 20em;
-            }
+            #intro-quote > .icon { font-size: 4em; }
+            #intro-quote > .quote { max-width: 20em; }
         </style>
     </head>
-    <body>
-        <div class="highlight unselectable">
-            <div class="icon">
-                <i class="fas fa-kiwi-bird"></i>
+    <body class="unselectable">
+        <nav>
+            <h1 id="title">Jared</h1>
+            <h4><a href="#section-about" class="highlight">About</a></h4>
+            <h4><a href="#section-projects">Projects</a></h4>
+            <h4><a href="#section-cv">CV</a></h4>
+            <h4><a href="#section-links">Links</a></h4>
+        </nav>
+        <main>
+            <div id="intro-quote">
+                <div class="icon">
+                    <i class="fas fa-kiwi-bird"></i>
+                </div>
+                <blockquote class="quote">
+                    That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
+                </blockquote>
             </div>
-            <blockquote class="quote">
-                That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
-            </blockquote>
             <hr>
-            <div class="navi" hidden>
-                <h3 class="title">Jared C</h3>
-                <h5><a href="">About</a></h5>
-                <h5><a href="">Projects</a></h5>
-                <h5><a href="">Contact</a></h5>
-                <h5><a href="">CV</a></h5>
-            </div>
-            <p>
-                Hi, it's Jared. I'm a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. With a decade's worth of experience in computer and software engineering (specifically computer networks and programming), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Besides engineering, I'm also interested in entrepreneurship. Notably the two companies that I have in mind so far are Retmax (formally Rex) Inc. (technology company) and its subsidiary eLitet (pronounced Elite-T) (telecommunication company). When not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on rationalities behind human behaviors as part of my own research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating. At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun. I'm also a senior member of UCSD's official Reddit community.
-            </p>
-        </div>
+            <section id="section-about">
+                <h1>About.</h1>
+                <p>
+                    Hi, it's Jared. I'm a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. With a decade's worth of experience in computer and software engineering (specifically computer networks and programming), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Besides engineering, I'm also interested in entrepreneurship. Notably the two companies that I have in mind so far are Retmax (formally Rex) Inc. (technology company) and its subsidiary eLitet (pronounced Elite-T) (telecommunication company). When not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on rationalities behind human behaviors as part of my own research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating. At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun. I'm also a senior member of UCSD's official Reddit community.
+                </p>
+            </section>
+            <section id="section-projects">
+                <h1>Projects.</h1>
+                <p>
+                    Coming soon.
+                </p>
+            </section>
+            <section id="section-cv">
+                <h1>CV.</h1>
+                <p>
+                    Coming soon.
+                </p>
+            </section>
+            <section id="section-links">
+                <h1>Links.</h1>
+                <p>
+                    Coming soon.
+                </p>
+            </section>
+        </main>
     </body>
 </html>

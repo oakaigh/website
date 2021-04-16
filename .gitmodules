@@ -1,0 +1,6 @@
+[submodule "assets/fonts/font-awesome"]
+	path = assets/fonts/font-awesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
+[submodule "assets/fonts/lexend/css/lexend"]
+	path = assets/fonts/lexend/css/lexend
+	url = https://github.com/ThomasJockin/lexend.git
