@@ -12,9 +12,7 @@
     --font-text-size: 1em;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 ::-moz-selection,
 ::selection {
@@ -22,7 +20,7 @@
     opacity: 0.5;
 }
 
-.unselectable {
+[data-unselectable] {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -83,6 +81,7 @@ nav {
     background: var(--color-background);
 
     width: 15em;
+    min-width: 15em;
     padding: 3em;
     height: 100vh;
 
@@ -97,14 +96,19 @@ nav > * {
 }
 
 nav > #title {
-    text-transform: capitalize;
     line-height: 1.5;
+    text-transform: capitalize;
     /*margin-right: 0.5em;*/
+}
+
+[data-overflow] nav {
+    display: none;
 }
 
 main {
     grid-column: 2;
     margin: var(--page-margin);
+    min-width: 60vw;
 }
 
 blockquote {

@@ -7,6 +7,8 @@
         <title>Jared C</title>
         <link rel="icon" href="assets/icon.svg">
         <link rel="stylesheet" href="assets/main.css">
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+        <script src="assets/main.js"></script>
         <style>
             #intro-quote {
                 margin-top: 40vh;
@@ -16,7 +18,7 @@
             #intro-quote > .quote { max-width: 20em; }
         </style>
     </head>
-    <body class="unselectable">
+    <body data-unselectable>
         <nav>
             <h1 id="title">Jared</h1>
             <h4><a href="#section-about" class="highlight">About</a></h4>
@@ -25,14 +27,14 @@
             <h4><a href="#section-links">Links</a></h4>
         </nav>
         <main>
-            <div id="intro-quote">
+            <header id="intro-quote">
                 <div class="icon">
                     <i class="fas fa-kiwi-bird"></i>
                 </div>
                 <blockquote class="quote">
                     That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
                 </blockquote>
-            </div>
+            </header>
             <hr>
             <section id="section-about">
                 <h1>About.</h1>

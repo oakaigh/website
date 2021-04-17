@@ -4,3 +4,6 @@
 [submodule "assets/fonts/lexend/css/lexend"]
 	path = assets/fonts/lexend/css/lexend
 	url = https://github.com/ThomasJockin/lexend.git
+[submodule "assets/jquery"]
+	path = assets/jquery
+	url = https://github.com/jquery/jquery-dist.git
