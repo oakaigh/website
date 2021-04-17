@@ -42,6 +42,8 @@ $(document).ready(
                 o.attr('data-overflow', '');
             },
             function (o) {
+                if (overflow_thres === undefined)
+                    return;
                 if (overflow_thres != undefined &&
                     o.width() <= overflow_thres)
                     return;
