@@ -30,6 +30,8 @@
 
 body {
     display: grid;
+    grid-template-areas: 'nav main';
+
     font-family: var(--font-text-family);
     font-size: var(--font-text-size);
     margin: 0;
@@ -68,6 +70,8 @@ footer {
 }
 
 nav {
+    grid-area: nav;
+    grid-row: 1;
     grid-column: 1;
     position: sticky;
 
@@ -81,12 +85,10 @@ nav {
     background: var(--color-background);
 
     width: 15em;
-    min-width: 15em;
+    min-width: fit-content;
+
     padding: 3em;
     height: 100vh;
-
-    /*border: none;
-    border-radius: 0.1em;*/
 }
 
 nav > * {
@@ -106,7 +108,10 @@ nav > #title {
 }
 
 main {
+    grid-area: main;
+    grid-row: 1;
     grid-column: 2;
+
     margin: var(--page-margin);
     min-width: 60vw;
 }
