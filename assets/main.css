@@ -3,58 +3,50 @@
 
 
 :root {
-    --color-text: white;
-    --color-background: black;
-
     --page-margin: 4em;
 
     --font-text-family: 'Lexend Deca';
     --font-text-size: 1em;
+
+    --line-text-height: 1.5;
+
+    --color-text: black;
+    --color-background: white;
+
+    --nav-color-text: white;
+    --nav-color-background: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: white;
+        --color-background: #121212;
+    }
 }
 
 * { box-sizing: border-box; }
 
-::-moz-selection,
-::selection {
-    background: var(--color-text);
-    opacity: 0.5;
-}
-
-[data-unselectable] {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 body {
     display: grid;
     grid-template-areas: 'nav main';
+    margin: unset;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
 
     font-family: var(--font-text-family);
     font-size: var(--font-text-size);
-    margin: 0;
-    line-height: 1.5;
+
+    line-height: var(--line-text-height);
     word-wrap: break-word;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+body ::-moz-selection,
+body ::selection {
+    background-color: var(--color-background);
 }
 
-a:hover { text-decoration: underline; }
-
-a.highlight {
-    border: none;
-    border-radius: 0.1em;
-    color: var(--color-background);
-    background-color: var(--color-text);
-    padding: 0.1em 0.5em;
-}
-
-hr {
+body hr {
     height: 2px;
     display: block;
     border: 0;
@@ -62,14 +54,22 @@ hr {
     width: 100%;
 }
 
-header {}
-footer {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 2em;
+body blockquote {
+    position: relative;
 }
 
-nav {
+body blockquote:before {
+    position: absolute;
+    content: open-quote;
+    font-size: 4em;
+    margin-left: -0.6em;
+    margin-top: -0.4em;
+}
+
+body header {}
+body footer {}
+
+body nav {
     grid-area: nav;
     grid-row: 1;
     grid-column: 1;
@@ -79,10 +79,10 @@ nav {
     top: 0;
     left: 0;
 
-    color: var(--color-text);
-    line-height: 1;
+    color: var(--nav-color-text);
+    background-color: var(--nav-color-background);
 
-    background: var(--color-background);
+    line-height: 1;
 
     width: 15em;
     min-width: fit-content;
@@ -91,39 +91,30 @@ nav {
     height: 100vh;
 }
 
-nav > * {
-    /*display: inline;
-    margin-right: 0.1em;*/
+body nav > * {
     display: block;
 }
 
-nav > #title {
+body nav > #title {
     line-height: 1.5;
     text-transform: capitalize;
-    /*margin-right: 0.5em;*/
 }
 
-[data-overflow] nav {
+body nav button,
+body nav [data-button] {
+    color: var(--nav-color-background);
+    background-color: var(--nav-color-text);
+}
+
+body[data-overflow] nav {
     display: none;
 }
 
-main {
+body main {
     grid-area: main;
     grid-row: 1;
     grid-column: 2;
 
     margin: var(--page-margin);
     min-width: 60vw;
-}
-
-blockquote {
-    position: relative;
-}
-
-blockquote:before {
-    position: absolute;
-    content: open-quote;
-    font-size: 4em;
-    margin-left: -0.6em;
-    margin-top: -0.4em;
 }

@@ -3,35 +3,38 @@ if (typeof $ != 'function') {
     throw new Error('Required module not loaded');
 }
 
-function handle_overflow(parent, child, axis, fn, rfn)
+function overflow(parent, child, axis)
 {
-    function overflow_x(parent, child) {
-        return child.prop('scrollWidth') > child.prop('clientWidth');
-    }
-    function overflow_y(parent, child) {
-        return child.prop('scrollHeight') > child.prop('clientHeight');
-    }
-    function overflow(parent, child) {
-        switch (axis) {
-            case 'x':
-                return overflow_x(parent, child);
-            case 'y':
-                return overflow_y(parent, child);
-            case 'xy':
-                return overflow_x(parent, child) || overflow_y(parent, child);
-            default:
-                return false;
-        }
+    switch (axis) {
+        case 'x':
+            return child.prop('scrollWidth') >
+                   child.prop('clientWidth');
+        case 'y':
+            return child.prop('scrollHeight') >
+                   child.prop('clientHeight');
+        case 'xy':
+            return overflow(parent, child, 'x') ||
+                   overflow(parent, child, 'y');
+        default:
+            break;
     }
 
-    return parent.on(
-        'load resize', function () {
-            return overflow(parent, child) ? fn(child) : rfn(child);
-        });
+    return false;
+}
+
+function handle_overflow(parent, child, axis, fn, rfn)
+{
+    function overflow_fn() {
+        return overflow(parent, child, axis) ? fn(child) : rfn(child);
+    }
+
+    overflow_fn();
+    parent.on('resize', overflow_fn);
 }
 
 $(document).ready(
-    function () {
+    function ()
+    {
         var overflow_thres = undefined;
 
         handle_overflow(
@@ -42,8 +45,6 @@ $(document).ready(
                 o.attr('data-overflow', '');
             },
             function (o) {
-                if (overflow_thres === undefined)
-                    return;
                 if (overflow_thres != undefined &&
                     o.width() <= overflow_thres)
                     return;
