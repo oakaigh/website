@@ -20,30 +20,36 @@
         <script src="assets/jquery/dist/jquery.min.js"></script>
         <script src="assets/marked/marked.min.js"></script>
         <script src="assets/main.js"></script>
+        <script src="assets/ui.js"></script>
         <script>
             $(document).ready(
                 function () {
-                    init_overflow_handler('x', $(document.body));
+                    init_overflow_handler(
+                        'x', $(document.body), $(window)
+                    );
                     init_target_index();
                     init_sec_link();
+                    //init_nav('nav');
 
-                    module_check({
-                        'marked': {marked: 'function'}
-                    });
-                    init_markdown({
-                        'markdown': marked
-                    }, 'markdown');
+                    module_check({'marked': {marked: 'function'}});
+                    init_markdown({'markdown': marked}, 'markdown');
                 }
             );
         </script>
     </head>
     <body class="ui-unselectable ui-font-smoothing">
         <nav>
-            <name>
-                <h1>Jared</h1>
-            </name>
+            <lead>
+                <name>
+                    <h1>Jared</h1>
+                </name>
+                <links-toggle>
+                    <toggle-on><i class="fas fa-chevron-down"></i></toggle-on>
+                    <toggle-off><i class="fas fa-chevron-up"></i></toggle-off>
+                </links-toggle>
+            </lead>
             <links>
-                <h4><a href="#section-about" data-button>About</a></h4>
+                <h4><a href="#section-about">About</a></h4>
                 <h4><a href="#section-projects">Projects</a></h4>
                 <h4><a href="#section-photography">Photography</a></h4>
                 <h4><a href="#section-cv">CV</a></h4>
@@ -51,7 +57,7 @@
                 <h4><a href="#section-links">Links</a></h4>
             </links>
         </nav>
-        <main>
+        <main class="ui-article">
             <page id="section-cover" data-target-index>
                 <header style="
                     height: 100%;
@@ -127,28 +133,41 @@
                     <h1>About This <a href="//github.com/oakaigh/oakaigh.github.io" target="_blank" data-sec-link>Website</a>.</h1>
                     <article>
                         <p>
-                            This website was made blazing fast and available to the billions thanks to
-                            <a href="//www.cloudflare.com" target="_blank" data-sec-link>Cloudflare</a>'s Content Delivery Network around the globe. This website would also not be possible without the help of <a href="//pages.github.com" target="_blank" data-sec-link>GitHub Pages</a>. GitHub hosted 100% of the content of this website completely for free, so did Cloudflare. So big thanks to them for hosting my website.
+                            This website was made blazing fast and available to the billions thanks to <a href="//www.cloudflare.com" target="_blank" data-sec-link>Cloudflare</a>'s Content Delivery Network around the globe. This website would also not be possible without the help of <a href="//pages.github.com" target="_blank" data-sec-link>GitHub Pages</a>. GitHub hosted 100% of the content of this website completely for free, so did Cloudflare. So big thanks to them for hosting my website.
                         </p>
                         <p>
                             Suggestions on how this website might be improved? Open an <a href="//github.com/oakaigh/oakaigh.github.io/issues" target="_blank" data-sec-link>Issue</a> on GitHub.
+                        </p>
+                        <h3 id="section-links-ref-cover">Quote at the Beginning.</h3>
+                        <p>
+                            <a href="//wikipedia.org/wiki/The_Catcher_in_the_Rye">The Catcher in the Rye (1951)</a> by <a href="//wikipedia.org/wiki/J._D._Salinger">J. D. Salinger</a> Chapter 22.
                         </p>
                     </article>
                     <h1>Open Source and Licensing.</h1>
                     <article>
                         <h1>License.</h1>
-                        <md src="LICENSE.md"></md>
+                        <license style="
+                            max-width: 20em;
+                            margin: auto;
+                            text-align: center;
+                            display: block;
+                        ">
+                            <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="width: 50%" src="assets/creativecommons/by-nc-sa.svg"></a>
+                            <p>
+                                This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+                            </p>
+                        </license>
                         <h1>Credits.</h1>
                         <article>
                             <ul>
                                 <li>
-                                    <a href="//github.com/ThomasJockin/lexend" target="_blank" data-sec-link="">Lexend Deca</a> is the primary font used in this website.
+                                    <a href="//github.com/ThomasJockin/lexend" target="_blank" data-sec-link="">Lexend Deca</a> - The primary font used in this website.
                                 </li>
                                 <li>
-                                    <a href="//github.com/jquery/jquery" target="_blank" data-sec-link="">jQuery</a> is a JavaScript library used for rendering and automating HTML elements behind the scenes.
+                                    <a href="//github.com/jquery/jquery" target="_blank" data-sec-link="">jQuery</a> - A JavaScript library used for rendering and automating HTML elements behind the scenes.
                                 </li>
                                 <li>
-                                    <a href="//github.com/markedjs/marked" target="_blank" data-sec-link="">Marked</a> is a JavaScript <a href="//daringfireball.net/projects/markdown" target="_blank" data-sec-link="">Markdown</a> text rendering engine.
+                                    <a href="//github.com/markedjs/marked" target="_blank" data-sec-link="">Marked</a> - A JavaScript <a href="//daringfireball.net/projects/markdown" target="_blank" data-sec-link="">Markdown</a> text rendering engine.
                                 </li>
                             </ul>
                         </article>

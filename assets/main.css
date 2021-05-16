@@ -76,6 +76,14 @@ body nav {
 
 body nav name {}
 
+body nav links {
+    display: initial;
+}
+
+body nav links-toggle {
+    display: none;
+}
+
 body nav links > * {
     display: block;
     line-height: var(--nav-line-text-height);
@@ -127,17 +135,32 @@ body[data-overflow] nav {
     line-height: unset;
 }
 
+body[data-overflow] nav lead > * {
+    display: inline;
+}
+
 body[data-overflow] nav name {}
+
+body[data-overflow] nav links-toggle {
+    display: unset;
+}
+
+body[data-overflow] nav links-toggle toggle-on,
+body[data-overflow] nav links-toggle toggle-off {
+    display: none;
+}
 
 body[data-overflow] nav links {
     display: none;
 }
 
+/*
 body[data-overflow] nav:focus links,
 body[data-overflow] nav:hover links,
 body[data-overflow] nav:hover:active links {
-    display: initial;
+    display: unset;
 }
+*/
 
 body[data-overflow] main {
     grid-row: 2;
