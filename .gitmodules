@@ -7,3 +7,6 @@
 [submodule "assets/jquery"]
 	path = assets/jquery
 	url = https://github.com/jquery/jquery-dist.git
+[submodule "assets/marked"]
+	path = assets/marked
+	url = https://github.com/markedjs/marked.git
