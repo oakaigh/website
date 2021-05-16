@@ -1,63 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Jared's own personal website.">
         <title>Jared C</title>
         <link rel="icon" href="assets/icon.svg">
+        <link rel="stylesheet" href="assets/fonts/lexend/css/all.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome/css/all.css">
         <link rel="stylesheet" href="assets/main.css">
         <link rel="stylesheet" href="assets/ui.css">
+        <link rel="stylesheet" href="assets/markdown.css">
+        <style>
+            :root {
+                --font-text-family: 'Lexend Deca';
+            }
+        </style>
         <script src="assets/jquery/dist/jquery.min.js"></script>
+        <script src="assets/marked/marked.min.js"></script>
         <script src="assets/main.js"></script>
+        <script>
+            $(document).ready(
+                function () {
+                    init_overflow_handler('x', $(document.body));
+                    init_target_index();
+                    init_sec_link();
+
+                    module_check({
+                        'marked': {marked: 'function'}
+                    });
+                    init_markdown({
+                        'markdown': marked
+                    }, 'markdown');
+                }
+            );
+        </script>
     </head>
-    <body data-unselectable>
+    <body class="ui-unselectable ui-font-smoothing">
         <nav>
-            <h1 id="title">Jared</h1>
-            <h4><a href="#intro">Intro</a></h4>
-            <h4><a href="#section-about" data-button>About</a></h4>
-            <h4><a href="#section-projects">Projects</a></h4>
-            <h4><a href="#section-photography">Photography</a></h4>
-            <h4><a href="#section-cv">CV</a></h4>
-            <h4><a href="#section-goodies">Goodies</a></h4>
-            <h4><a href="#section-links">Links</a></h4>
+            <name>
+                <h1>Jared</h1>
+            </name>
+            <links>
+                <h4><a href="#section-about" data-button>About</a></h4>
+                <h4><a href="#section-projects">Projects</a></h4>
+                <h4><a href="#section-photography">Photography</a></h4>
+                <h4><a href="#section-cv">CV</a></h4>
+                <h4><a href="#section-goodies">Goodies</a></h4>
+                <h4><a href="#section-links">Links</a></h4>
+            </links>
         </nav>
         <main>
-            <header id="intro" style="
-                max-width: 20em;
-                margin: 40vh 0em 4em 0em;
-            ">
-                <i class="fas fa-kiwi-bird" style="font-size: 4em;"></i>
-                <blockquote>
-                    That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
-                </blockquote>
-            </header>
-            <hr>
-            <section id="section-about">
+            <page id="section-cover" data-target-index>
+                <header style="
+                    height: 100%;
+                    display: grid;
+                " class="ui-classy">
+                    <div style="align-self: end;">
+                        <i class="fas fa-kiwi-bird" style="font-size: 4em;"></i>
+                        <blockquote>
+                            <quote style="max-width: 15em;">
+                                That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
+                            </quote>
+                        </blockquote>
+                        <hr style="margin-top: 2em;">
+                    </div>
+                </header>
+            </page>
+            <page id="section-about">
                 <h1>About.</h1>
-                <p>
-                    Hi, it's Jared. I'm a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. With a decade's worth of experience in computer and software engineering (specifically computer networks and programming), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Besides engineering, I'm also interested in entrepreneurship. Notably the two companies that I have in mind so far are Retmax (formally Rex) Inc. (technology company) and its subsidiary eLitet (pronounced Elite-T) (telecommunication company). When not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on rationalities behind human behaviors as part of my own research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating. At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun. I'm also a senior member of UCSD's official Reddit community.
-                </p>
-            </section>
-            <section id="section-projects">
+                <article>
+                    <p>
+                        Hi, it's Jared. I'm a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. With a decade's worth of experience in computer and software engineering (specifically computer networks and programming), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Besides engineering, I'm also interested in entrepreneurship. Notably the two companies that I have in mind so far are Retmax (formally Rex) Inc. (technology company) and its subsidiary eLitet (pronounced Elite-T) (telecommunication company). When not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on rationalities behind human behaviors as part of my own research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating. At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun. I'm also a senior member of UCSD's official Reddit community.
+                    </p>
+                </article>
+            </page>
+            <page id="section-projects">
                 <h1>Projects.</h1>
                 <p>
                     Coming soon.
                 </p>
-            </section>
-            <section id="section-photography">
+            </page>
+            <page id="section-photography">
                 <h1>Photography.</h1>
                 <p>
                     Coming soon.
                 </p>
-            </section>
-            <section id="section-cv">
+            </page>
+            <page id="section-cv">
                 <h1>CV.</h1>
                 <p>
                     Coming soon.
                 </p>
-            </section>
-            <section id="section-goodies">
+            </page>
+            <page id="section-goodies">
                 <h1>Goodies.</h1>
                 <p>
                     Coming soon.
@@ -68,13 +105,57 @@
                         Coming soon. Stay Tuned!
                     </p>
                 </section>
-            </section>
-            <section id="section-links">
+            </page>
+            <page id="section-links">
                 <h1>Links & Resources.</h1>
                 <p>
-                    Coming soon.
+                    Some additional information about the website and myself, and some other stuffs that you might find interesting.
                 </p>
-            </section>
+                <section id="section-links-myself">
+                    <h1>More On Myself.</h1>
+                    <p>
+                        Fun fact: I'm working on it.
+                    </p>
+                </section>
+                <section id="section-links-misc">
+                    <h1>More On Engineering, UI/UX, and Machine Learning.</h1>
+                    <p>
+                        Coming soon.
+                    </p>
+                </section>
+                <section id="section-links-website">
+                    <h1>About This <a href="//github.com/oakaigh/oakaigh.github.io" target="_blank" data-sec-link>Website</a>.</h1>
+                    <article>
+                        <p>
+                            This website was made blazing fast and available to the billions thanks to
+                            <a href="//www.cloudflare.com" target="_blank" data-sec-link>Cloudflare</a>'s Content Delivery Network around the globe. This website would also not be possible without the help of <a href="//pages.github.com" target="_blank" data-sec-link>GitHub Pages</a>. GitHub hosted 100% of the content of this website completely for free, so did Cloudflare. So big thanks to them for hosting my website.
+                        </p>
+                        <p>
+                            Suggestions on how this website might be improved? Open an <a href="//github.com/oakaigh/oakaigh.github.io/issues" target="_blank" data-sec-link>Issue</a> on GitHub.
+                        </p>
+                    </article>
+                    <h1>Open Source and Licensing.</h1>
+                    <article>
+                        <h1>License.</h1>
+                        <md src="LICENSE.md"></md>
+                        <h1>Credits.</h1>
+                        <article>
+                            <ul>
+                                <li>
+                                    <a href="//github.com/ThomasJockin/lexend" target="_blank" data-sec-link="">Lexend Deca</a> is the primary font used in this website.
+                                </li>
+                                <li>
+                                    <a href="//github.com/jquery/jquery" target="_blank" data-sec-link="">jQuery</a> is a JavaScript library used for rendering and automating HTML elements behind the scenes.
+                                </li>
+                                <li>
+                                    <a href="//github.com/markedjs/marked" target="_blank" data-sec-link="">Marked</a> is a JavaScript <a href="//daringfireball.net/projects/markdown" target="_blank" data-sec-link="">Markdown</a> text rendering engine.
+                                </li>
+                            </ul>
+                        </article>
+                        <p>&copy; 2021 Jared C</p>
+                    </article>
+                </section>
+            </page>
         </main>
     </body>
 </html>

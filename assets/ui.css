@@ -1,3 +1,4 @@
+/* UI Theme: Common */
 :root {
     --ui-border: none;
     --ui-border-radius: 0.1em;
@@ -11,6 +12,7 @@
     opacity: var(--ui-selection-opacity);
 }
 
+.ui-unselectable,
 [data-unselectable] {
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -19,7 +21,16 @@
     user-select: none;
 }
 
-button, [data-button] {
+.ui-font-smoothing,
+[data-font-smoothing] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+.ui-button,
+[data-button] {
     border: var(--ui-border);
     border-radius: var(--ui-border-radius);
     padding: var(--ui-padding);
@@ -30,4 +41,52 @@ a {
     text-decoration: none;
 }
 
-a:hover { text-decoration: underline; }
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* UI Theme: Classy */
+.ui-classy {
+    --ui-hr-height: 2px;
+    --ui-blockquote-quote-font-size: 4em;
+    --ui-blockquote-quote-line-height: 1;
+    --ui-blockquote-margin: 0.5em;
+}
+
+.ui-classy hr,
+hr.ui-classy {
+    display: block;
+    border: unset;
+    border-top: var(--ui-hr-height) solid;
+}
+
+.ui-classy blockquote,
+blockquote.ui-classy {
+    display: grid;
+    grid-template-areas: 'quote-begin quote-content';
+    grid-template-columns: max-content;
+    grid-template-rows: auto;
+
+    margin-left: unset;
+}
+
+.ui-classy blockquote::before,
+blockquote.ui-classy::before {
+    grid-area: quote-begin;
+    grid-row: 1;
+    grid-column: 1;
+
+    content: open-quote;
+    font-size: var(--ui-blockquote-quote-font-size);
+    line-height: var(--ui-blockquote-quote-line-height);
+}
+
+.ui-classy blockquote > quote,
+blockquote.ui-classy > quote {
+    grid-area: quote-content;
+    grid-row: 1;
+    grid-column: 2;
+
+    margin: var(--ui-blockquote-margin);
+}

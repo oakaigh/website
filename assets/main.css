@@ -1,34 +1,44 @@
-@import url('fonts/lexend/css/all.css');
-@import url('fonts/font-awesome/css/all.css');
-
-
 :root {
-    --page-margin: 4em;
+    color-scheme: light dark;
 
-    --font-text-family: 'Lexend Deca';
-    --font-text-size: 1em;
+    --page-margin: 4em;
+    --page-text-wrap: break-word;
 
     --line-text-height: 1.5;
-
+    --font-text-family: unset;
+    --font-text-size: 1em;
     --color-text: black;
     --color-background: white;
 
+    --nav-width-max: 15em;
+    --nav-line-text-height: 1;
     --nav-color-text: white;
     --nav-color-background: black;
+
+    --main-width-min: 60vw;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-text: white;
+        --color-text: #ededed;
         --color-background: #121212;
     }
 }
 
-* { box-sizing: border-box; }
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 body {
     display: grid;
     grid-template-areas: 'nav main';
+    grid-template-columns: max-content;
+    grid-template-rows: auto;
+
     margin: unset;
 
     color: var(--color-text);
@@ -38,7 +48,7 @@ body {
     font-size: var(--font-text-size);
 
     line-height: var(--line-text-height);
-    word-wrap: break-word;
+    word-wrap: var(--page-text-wrap);
 }
 
 body ::-moz-selection,
@@ -46,58 +56,29 @@ body ::selection {
     background-color: var(--color-background);
 }
 
-body hr {
-    height: 2px;
-    display: block;
-    border: 0;
-    border-top: 2px solid;
-    width: 100%;
-}
-
-body blockquote {
-    position: relative;
-}
-
-body blockquote:before {
-    position: absolute;
-    content: open-quote;
-    font-size: 4em;
-    margin-left: -0.6em;
-    margin-top: -0.4em;
-}
-
-body header {}
-body footer {}
-
 body nav {
     grid-area: nav;
     grid-row: 1;
     grid-column: 1;
-    position: sticky;
 
-    z-index: 1;
+    position: sticky;
     top: 0;
-    left: 0;
+
+    height: 100vh;
+    width: fit-content;
+    max-width: var(--nav-width-max);
+
+    padding: var(--page-margin);
 
     color: var(--nav-color-text);
     background-color: var(--nav-color-background);
-
-    line-height: 1;
-
-    width: 15em;
-    min-width: fit-content;
-
-    padding: 3em;
-    height: 100vh;
 }
 
-body nav > * {
+body nav name {}
+
+body nav links > * {
     display: block;
-}
-
-body nav > #title {
-    line-height: 1.5;
-    text-transform: capitalize;
+    line-height: var(--nav-line-text-height);
 }
 
 body nav button,
@@ -106,15 +87,59 @@ body nav [data-button] {
     background-color: var(--nav-color-text);
 }
 
-body[data-overflow] nav {
-    display: none;
-}
-
 body main {
     grid-area: main;
     grid-row: 1;
     grid-column: 2;
 
     margin: var(--page-margin);
-    min-width: 60vw;
+    min-width: var(--main-width-min);
+}
+
+body main page {
+    display: block;
+}
+
+body main page {
+    display: none;
+}
+
+body main page:target {
+    display: initial;
+}
+
+body[data-overflow] {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
+body[data-overflow] nav {
+    grid-row: 1;
+    grid-column: 1;
+
+    height: unset;
+    width: 100%;
+    max-width: unset;
+
+    padding: 0em var(--page-margin);
+
+    text-align: center;
+    line-height: unset;
+}
+
+body[data-overflow] nav name {}
+
+body[data-overflow] nav links {
+    display: none;
+}
+
+body[data-overflow] nav:focus links,
+body[data-overflow] nav:hover links,
+body[data-overflow] nav:hover:active links {
+    display: initial;
+}
+
+body[data-overflow] main {
+    grid-row: 2;
+    grid-column: 1;
 }
