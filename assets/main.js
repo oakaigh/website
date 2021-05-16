@@ -129,6 +129,7 @@ function init_markdown(
 
 function init_nav(
     attr_nav = 'nav',
+    attr_on_hold = 'data-hold',
     attr_nav_links_toggle = 'links-toggle',
     attr_nav_toggle_on = 'toggle-on', attr_nav_toggle_off = 'toggle-off',
     attr_nav_links = 'links'
@@ -145,14 +146,14 @@ function init_nav(
         .attr('class', 'ui-toggle')
         .on({
             'toggle:checked': function () {
-                nav_links.show();
-                nav_links_toggle_on.show();
-                nav_links_toggle_off.hide();
+                nav_links.removeAttr(attr_on_hold);
+                nav_links_toggle_on.removeAttr(attr_on_hold);
+                nav_links_toggle_off.attr(attr_on_hold, '');
             },
             'toggle:unchecked': function () {
-                nav_links.hide();
-                nav_links_toggle_on.hide();
-                nav_links_toggle_off.show();
+                nav_links.attr(attr_on_hold, '');
+                nav_links_toggle_on.attr(attr_on_hold, '');
+                nav_links_toggle_off.removeAttr(attr_on_hold);
             }
         });
 

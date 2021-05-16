@@ -15,6 +15,9 @@
     --nav-color-text: white;
     --nav-color-background: black;
 
+    --nav-resp-padding-y: 1em;
+    --nav-resp-line-text-height: 1;
+
     --main-width-min: 60vw;
 }
 
@@ -121,6 +124,14 @@ body[data-overflow] {
     grid-template-rows: auto;
 }
 
+body[data-overflow] [data-hold] {
+    display: none;
+}
+
+body[data-overflow] [data-reveal] {
+    display: initial;
+}
+
 body[data-overflow] nav {
     grid-row: 1;
     grid-column: 1;
@@ -129,30 +140,35 @@ body[data-overflow] nav {
     width: 100%;
     max-width: unset;
 
-    padding: 0em var(--page-margin);
+    padding: var(--nav-resp-padding-y) var(--page-margin);
+    padding-bottom: 0; /*TODO*/
 
     text-align: center;
-    line-height: unset;
 }
 
-body[data-overflow] nav lead > * {
-    display: inline;
+body[data-overflow] nav name {
+    line-height: var(--nav-resp-line-text-height);
 }
 
-body[data-overflow] nav name {}
+body[data-overflow] nav links {}
+
+body[data-overflow] nav lead * {
+    margin: unset;
+}
 
 body[data-overflow] nav links-toggle {
     display: unset;
 }
 
-body[data-overflow] nav links-toggle toggle-on,
+/*body[data-overflow] nav links-toggle toggle-on,
 body[data-overflow] nav links-toggle toggle-off {
     display: none;
-}
+}*/
 
+/*
 body[data-overflow] nav links {
     display: none;
-}
+}*/
 
 /*
 body[data-overflow] nav:focus links,
