@@ -93,12 +93,6 @@ function init_target_index(
     }
 }
 
-function init_sec_link(
-    attr_sec_link = '[data-sec-link]'
-) {
-    $(attr_sec_link).attr('rel', 'noopener noreferrer');
-}
-
 function init_markdown(
     renderers, default_renderer,
     attr_renderer = 'format',
@@ -127,35 +121,22 @@ function init_markdown(
     );
 }
 
-function init_nav(
-    attr_nav = 'nav',
-    attr_on_hold = 'data-hold',
-    attr_nav_links_toggle = 'links-toggle',
-    attr_nav_toggle_on = 'toggle-on', attr_nav_toggle_off = 'toggle-off',
-    attr_nav_links = 'links'
-) {
-    var nav_links_toggle =
-        $(attr_nav).find(attr_nav_links_toggle);
-    var nav_links_toggle_on =
-        nav_links_toggle.find(attr_nav_toggle_on);
-    var nav_links_toggle_off =
-        nav_links_toggle.find(attr_nav_toggle_off);
-    var nav_links = $(attr_nav).find(attr_nav_links);
+function init_dom_defaults(defaults) {
+    function has_attr(o, name) {
+        const attr = o.attr(name);
+        return typeof attr !== 'undefined' && attr !== false;
+    }
 
-    nav_links_toggle
-        .attr('class', 'ui-toggle')
-        .on({
-            'toggle:checked': function () {
-                nav_links.removeAttr(attr_on_hold);
-                nav_links_toggle_on.removeAttr(attr_on_hold);
-                nav_links_toggle_off.attr(attr_on_hold, '');
-            },
-            'toggle:unchecked': function () {
-                nav_links.attr(attr_on_hold, '');
-                nav_links_toggle_on.attr(attr_on_hold, '');
-                nav_links_toggle_off.removeAttr(attr_on_hold);
+    for (const element in defaults) {
+        const attrs = defaults[element];
+        $(element).each(
+            function () {
+                const o = $(this);
+                for (const attr in attrs) {
+                    if (!has_attr(o, attr))
+                        o.attr(attr, attrs[attr]);
+                }
             }
-        });
-
-    init_toggle_button();
+        );
+    }
 }

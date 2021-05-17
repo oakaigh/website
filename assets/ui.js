@@ -2,41 +2,34 @@
 console.assert(typeof $ === 'function');
 
 
-function init_toggle_button(
-    attr_toggle_button = '.ui-toggle',
-    attr_checked = 'data-checked',
+function set_ui_toggleable(
+    o, attr_checked = 'data-checked',
+    attr_onchecked = 'data-onchecked', attr_onunchecked = 'data-onunchecked',
     ev_checked = 'toggle:checked', ev_unchecked = 'toggle:unchecked'
 ) {
-    /*$(document).on({
-        ready: function () {
-            $(this).trigger(ev_unchecked);
-            console.log('ready');
-        },
-        click: function () {
-            var checked = $(this).attr(attr_checked);
-
-            if (typeof checked === 'undefined' || checked === false) {
-                $(this).attr(attr_checked, '');
-                $(this).trigger(ev_checked);
-            } else {
-                $(this).removeAttr(attr_checked);
-                $(this).trigger(ev_unchecked);
-            }
-        }
-    }, attr_toggle_button);*/
-
-
-    $(attr_toggle_button).trigger(ev_unchecked);
-
-    $(attr_toggle_button).click(function () {
-        var checked = $(this).attr(attr_checked);
-
-        if (typeof checked === 'undefined' || checked === false) {
-            $(this).attr(attr_checked, '');
-            $(this).trigger(ev_checked);
+    function set_state(o, checked) {
+        if (checked) {
+            o.attr(attr_checked, '');
+            o.trigger(ev_checked);
+            eval(o.attr(attr_onchecked));
         } else {
-            $(this).removeAttr(attr_checked);
-            $(this).trigger(ev_unchecked);
+            o.removeAttr(attr_checked);
+            o.trigger(ev_unchecked);
+            eval(o.attr(attr_onunchecked));
         }
-    });
+    }
+
+    function get_state(o) {
+        var checked = o.attr(attr_checked);
+        return typeof checked !== 'undefined' && checked !== false;
+    }
+
+    set_state(o, get_state(o));
+    o.on('click', function () {set_state($(this), !get_state($(this)));});
+}
+
+function init_toggle_button(
+    attr_toggle_button = '.ui-toggle'
+) {
+    return set_ui_toggleable($(attr_toggle_button));
 }

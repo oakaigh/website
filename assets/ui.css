@@ -48,6 +48,26 @@ a:hover {
 /* UI Element: Toggle Switch */
 .ui-toggle {}
 
+.ui-toggle:not([data-checked])
+.indicator .on {
+    display: initial;
+}
+
+.ui-toggle:not([data-checked])
+.indicator .off {
+    display: none;
+}
+
+.ui-toggle[data-checked]
+.indicator .on {
+    display: none;
+}
+
+.ui-toggle[data-checked]
+.indicator .off {
+    display: initial;
+}
+
 
 /* UI Theme: Article */
 .ui-article {}

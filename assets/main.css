@@ -1,6 +1,8 @@
 :root {
     color-scheme: light dark;
+}
 
+body {
     --page-margin: 4em;
     --page-text-wrap: break-word;
 
@@ -10,19 +12,19 @@
     --color-text: black;
     --color-background: white;
 
-    --nav-width-max: 15em;
+    --nav-width-max: 20em;
     --nav-line-text-height: 1;
     --nav-color-text: white;
     --nav-color-background: black;
 
-    --nav-resp-padding-y: 1em;
+    --nav-resp-padding: 1em;
     --nav-resp-line-text-height: 1;
 
     --main-width-min: 60vw;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    body {
         --color-text: #ededed;
         --color-background: #121212;
     }
@@ -77,21 +79,18 @@ body nav {
     background-color: var(--nav-color-background);
 }
 
-body nav name {}
+body nav nav-header {}
 
-body nav links {
+body nav nav-main {
     display: initial;
-}
-
-body nav links-toggle {
-    display: none;
-}
-
-body nav links > * {
-    display: block;
     line-height: var(--nav-line-text-height);
 }
 
+body nav nav-main > * {
+    display: block;
+}
+
+/* TODO */
 body nav button,
 body nav [data-button] {
     color: var(--nav-color-background);
@@ -119,16 +118,24 @@ body main page:target {
     display: initial;
 }
 
+body [data-overflow-only] {
+    display: none;
+}
+
+body[data-overflow] [data-overflow-only] {
+    display: unset;
+}
+
 body[data-overflow] {
     grid-template-columns: 100%;
     grid-template-rows: auto;
 }
 
-body[data-overflow] [data-hold] {
+body[data-overflow] [data-overflow-hold] {
     display: none;
 }
 
-body[data-overflow] [data-reveal] {
+body[data-overflow] [data-overflow-reveal] {
     display: initial;
 }
 
@@ -140,43 +147,20 @@ body[data-overflow] nav {
     width: 100%;
     max-width: unset;
 
-    padding: var(--nav-resp-padding-y) var(--page-margin);
-    padding-bottom: 0; /*TODO*/
+    padding: var(--nav-resp-padding) var(--page-margin);
 
     text-align: center;
 }
 
-body[data-overflow] nav name {
+body[data-overflow] nav nav-header {
     line-height: var(--nav-resp-line-text-height);
 }
 
-body[data-overflow] nav links {}
-
-body[data-overflow] nav lead * {
+body[data-overflow] nav nav-header > * {
     margin: unset;
 }
 
-body[data-overflow] nav links-toggle {
-    display: unset;
-}
-
-/*body[data-overflow] nav links-toggle toggle-on,
-body[data-overflow] nav links-toggle toggle-off {
-    display: none;
-}*/
-
-/*
-body[data-overflow] nav links {
-    display: none;
-}*/
-
-/*
-body[data-overflow] nav:focus links,
-body[data-overflow] nav:hover links,
-body[data-overflow] nav:hover:active links {
-    display: unset;
-}
-*/
+body[data-overflow] nav nav-main {}
 
 body[data-overflow] main {
     grid-row: 2;
