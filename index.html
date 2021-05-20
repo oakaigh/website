@@ -6,6 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Jared's own personal website.">
         <title>Jared C</title>
+        <link rel="prefetch" as="image" href="assets/icon.svg">
+        <link rel="preload" as="style" href="assets/fonts/lexend/css/all.css">
+        <link rel="preload" as="style" href="assets/fonts/font-awesome/css/all.css">
+        <link rel="preload" as="style" href="assets/main.css">
+        <link rel="preload" as="style" href="assets/ui.css">
+        <link rel="preload" as="style" href="assets/markdown.css">
+        <link rel="preload" as="script" href="assets/jquery/dist/jquery.min.js">
+        <link rel="preload" as="script" href="assets/marked/marked.min.js">
+        <link rel="preload" as="script" href="assets/main.js">
+        <link rel="preload" as="script" href="assets/ui.js">
         <link rel="icon" href="assets/icon.svg">
         <link rel="stylesheet" href="assets/fonts/lexend/css/all.css">
         <link rel="stylesheet" href="assets/fonts/font-awesome/css/all.css">
@@ -17,28 +27,36 @@
                 --font-text-family: 'Lexend Deca';
             }
         </style>
-        <script src="assets/jquery/dist/jquery.min.js"></script>
-        <script src="assets/marked/marked.min.js"></script>
-        <script src="assets/main.js"></script>
-        <script src="assets/ui.js"></script>
-        <script>
+        <script defer src="assets/jquery/dist/jquery.min.js"></script>
+        <script defer src="assets/marked/marked.min.js"></script>
+        <script defer src="assets/main.js"></script>
+        <script defer src="assets/ui.js"></script>
+        <script type="module">
             $(document).ready(
                 function () {
-                    init_overflow_handler(
-                        'x', $(document.body), $(window)
-                    );
-                    init_target_index();
-                    init_toggle_button();
-                    init_dom_defaults({
-                        'a[data-link-external]': {
-                            target: '_blank',
-                            noopener: '',
-                            noreferrer: ''
+                    module_init({
+                        'overflow': {
+                            axis: 'x',
+                            child: $(document.body),
+                            parent: $(window)
+                        },
+                        'toggle-switch': {},
+                        'dom-defaults': {
+                            defaults: {
+                                'a[data-link-external]': {
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer'
+                                }
+                            }
+                        },
+                        'anchor-target': {},
+                        'markdown': {
+                            renderers: {
+                                'markdown': marked
+                            },
+                            default: 'markdown'
                         }
                     });
-
-                    module_check({'marked': {marked: 'function'}});
-                    init_markdown({'markdown': marked}, 'markdown');
                 }
             );
         </script>

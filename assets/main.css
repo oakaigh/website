@@ -1,168 +1,170 @@
-:root {
-    color-scheme: light dark;
-}
-
-body {
-    --page-margin: 4em;
-    --page-text-wrap: break-word;
-
-    --line-text-height: 1.5;
-    --font-text-family: unset;
-    --font-text-size: 1em;
-    --color-text: black;
-    --color-background: white;
-
-    --nav-width-max: 20em;
-    --nav-line-text-height: 1;
-    --nav-color-text: white;
-    --nav-color-background: black;
-
-    --nav-resp-padding: 1em;
-    --nav-resp-line-text-height: 1;
-
-    --main-width-min: 60vw;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        --color-text: #ededed;
-        --color-background: #121212;
+@supports (display: grid) and (--invalid: unset) {
+    :root {
+        color-scheme: light dark;
     }
-}
 
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    body {
+        --page-margin: 4em;
+        --page-text-wrap: break-word;
 
-body {
-    display: grid;
-    grid-template-areas: 'nav main';
-    grid-template-columns: max-content;
-    grid-template-rows: auto;
+        --line-text-height: 1.5;
+        /*--font-text-family: unset;*/
+        --font-text-size: 1em;
+        --color-text: black;
+        --color-background: white;
 
-    margin: unset;
+        --nav-width-max: 20em;
+        --nav-line-text-height: 1;
+        --nav-color-text: white;
+        --nav-color-background: black;
 
-    color: var(--color-text);
-    background-color: var(--color-background);
+        --nav-resp-padding: 1em;
+        --nav-resp-line-text-height: 1;
 
-    font-family: var(--font-text-family);
-    font-size: var(--font-text-size);
+        --main-width-min: 60vw;
+    }
 
-    line-height: var(--line-text-height);
-    word-wrap: var(--page-text-wrap);
-}
+    @media (prefers-color-scheme: dark) {
+        body {
+            --color-text: #ededed;
+            --color-background: #121212;
+        }
+    }
 
-body ::-moz-selection,
-body ::selection {
-    background-color: var(--color-background);
-}
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 
-body nav {
-    grid-area: nav;
-    grid-row: 1;
-    grid-column: 1;
+    body {
+        display: grid;
+        grid-template-areas: 'nav main';
+        grid-template-columns: max-content;
+        grid-template-rows: auto;
 
-    position: sticky;
-    top: 0;
+        margin: unset;
 
-    height: 100vh;
-    width: fit-content;
-    max-width: var(--nav-width-max);
+        color: var(--color-text);
+        background-color: var(--color-background);
 
-    padding: var(--page-margin);
+        font-family: var(--font-text-family);
+        font-size: var(--font-text-size);
 
-    color: var(--nav-color-text);
-    background-color: var(--nav-color-background);
-}
+        line-height: var(--line-text-height);
+        word-wrap: var(--page-text-wrap);
+    }
 
-body nav nav-header {}
+    body ::-moz-selection,
+    body ::selection {
+        background-color: var(--color-background);
+    }
 
-body nav nav-main {
-    display: initial;
-    line-height: var(--nav-line-text-height);
-}
+    body nav {
+        grid-area: nav;
+        grid-row: 1;
+        grid-column: 1;
 
-body nav nav-main > * {
-    display: block;
-}
+        position: sticky;
+        top: 0;
 
-/* TODO */
-body nav button,
-body nav [data-button] {
-    color: var(--nav-color-background);
-    background-color: var(--nav-color-text);
-}
+        height: 100vh;
+        width: fit-content;
+        max-width: var(--nav-width-max);
 
-body main {
-    grid-area: main;
-    grid-row: 1;
-    grid-column: 2;
+        padding: var(--page-margin);
 
-    margin: var(--page-margin);
-    min-width: var(--main-width-min);
-}
+        color: var(--nav-color-text);
+        background-color: var(--nav-color-background);
+    }
 
-body main page {
-    display: block;
-}
+    body nav nav-header {}
 
-body main page {
-    display: none;
-}
+    body nav nav-main {
+        display: initial;
+        line-height: var(--nav-line-text-height);
+    }
 
-body main page:target {
-    display: initial;
-}
+    body nav nav-main > * {
+        display: block;
+    }
 
-body [data-overflow-only] {
-    display: none;
-}
+    /* TODO */
+    body nav button,
+    body nav [data-button] {
+        color: var(--nav-color-background);
+        background-color: var(--nav-color-text);
+    }
 
-body[data-overflow] [data-overflow-only] {
-    display: unset;
-}
+    body main {
+        grid-area: main;
+        grid-row: 1;
+        grid-column: 2;
 
-body[data-overflow] {
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-}
+        margin: var(--page-margin);
+        min-width: var(--main-width-min);
+    }
 
-body[data-overflow] [data-overflow-hold] {
-    display: none;
-}
+    body main page {
+        display: block;
+    }
 
-body[data-overflow] [data-overflow-reveal] {
-    display: initial;
-}
+    body main page {
+        display: none;
+    }
 
-body[data-overflow] nav {
-    grid-row: 1;
-    grid-column: 1;
+    body main page:target {
+        display: initial;
+    }
 
-    height: unset;
-    width: 100%;
-    max-width: unset;
+    body [data-overflow-only] {
+        display: none;
+    }
 
-    padding: var(--nav-resp-padding) var(--page-margin);
+    body[data-overflow] [data-overflow-only] {
+        display: unset;
+    }
 
-    text-align: center;
-}
+    body[data-overflow] {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
 
-body[data-overflow] nav nav-header {
-    line-height: var(--nav-resp-line-text-height);
-}
+    body[data-overflow] [data-overflow-hold] {
+        display: none;
+    }
 
-body[data-overflow] nav nav-header > * {
-    margin: unset;
-}
+    body[data-overflow] [data-overflow-reveal] {
+        display: initial;
+    }
 
-body[data-overflow] nav nav-main {}
+    body[data-overflow] nav {
+        grid-row: 1;
+        grid-column: 1;
 
-body[data-overflow] main {
-    grid-row: 2;
-    grid-column: 1;
+        height: unset;
+        width: 100%;
+        max-width: unset;
+
+        padding: var(--nav-resp-padding) var(--page-margin);
+
+        text-align: center;
+    }
+
+    body[data-overflow] nav nav-header {
+        line-height: var(--nav-resp-line-text-height);
+    }
+
+    body[data-overflow] nav nav-header > * {
+        margin: unset;
+    }
+
+    body[data-overflow] nav nav-main {}
+
+    body[data-overflow] main {
+        grid-row: 2;
+        grid-column: 1;
+    }
 }
