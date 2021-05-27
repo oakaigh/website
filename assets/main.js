@@ -48,22 +48,26 @@ modules['dom-defaults'] = function (args)
         defaults: {}
     });
 
-    function has_attr(o, name) {
-        const attr = o.attr(name);
-        return typeof attr !== 'undefined' && attr !== false;
-    }
-
     for (const element in args['defaults']) {
-        const attrs = args['defaults'][element];
-        $(element).each(
-            function () {
-                const o = $(this);
-                for (const attr in attrs) {
-                    if (!has_attr(o, attr))
-                        o.attr(attr, attrs[attr]);
-                }
+        const conf = args['defaults'][element];
+
+        for (const e of $(element).toArray()) {
+            const o = $(e);
+            const attrs = conf['attr'],
+                  styles = conf['style'];
+
+            for (const attr in attrs) {
+                const v = o.attr(attr);
+                if (typeof v !== 'undefined' && v !== false)
+                    continue;
+                o.attr(attr, attrs[attr]);
             }
-        );
+            for (const style in styles) {
+                if (typeof o.css(style) !== 'undefined')
+                    continue;
+                o.css(style, styles[style]);
+            }
+        }
     }
 };
 
@@ -93,21 +97,19 @@ modules['markdown'] = function (args)
         return o.html(eval(args['renderers'][renderer])(text));
     }
 
-    $(attr_md).each(
-        function () {
-            var o = $(this);
-            var src = o.attr(attr_md_src);
-            var renderer = o.attr(attr_renderer);
-            if (typeof renderer === 'undefined' || renderer === false)
-                renderer = args['default_renderer'];
+    for (const e of $(attr_md).toArray()) {
+        var o = $(e);
+        var src = o.attr(attr_md_src);
+        var renderer = o.attr(attr_renderer);
+        if (typeof renderer === 'undefined' || renderer === false)
+            renderer = args['default_renderer'];
 
-            if (typeof src === 'undefined' || src === false) {
-                render_markdown(o, o.html(), renderer);
-            } else {
-                $.get(src, function (data) {
-                    render_markdown(o, data, renderer);
-                });
-            }
+        if (typeof src === 'undefined' || src === false) {
+            render_markdown(o, o.html(), renderer);
+        } else {
+            $.get(src, function (data) {
+                render_markdown(o, data, renderer);
+            });
         }
-    );
+    }
 };

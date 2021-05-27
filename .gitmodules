@@ -10,3 +10,6 @@
 [submodule "assets/marked"]
 	path = assets/marked
 	url = https://github.com/markedjs/marked.git
+[submodule "assets/fonts/inconsolata/css/inconsolata"]
+	path = assets/fonts/inconsolata/css/inconsolata
+	url = https://github.com/googlefonts/Inconsolata.git

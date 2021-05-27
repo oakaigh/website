@@ -11,6 +11,8 @@
         <link rel="prefetch" as="image" href="assets/icon.svg">
         <link rel="preload" as="style" href="assets/fonts/lexend/css/all.css">
         <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/lexend/css/lexend/fonts/webfonts/LexendDeca-Regular.woff2">
+        <link rel="preload" as="style" href="assets/fonts/inconsolata/css/all.css">
+        <link rel="preload" as="font" type="font/ttf" crossorigin href="assets/fonts/inconsolata/css/inconsolata/fonts/ttf/Inconsolata-Bold.ttf">
         <link rel="preload" as="style" href="assets/fonts/font-awesome/css/all.css">
         <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/font-awesome/webfonts/fa-solid-900.woff2">
         <link rel="preload" as="style" href="assets/main.css">
@@ -22,7 +24,10 @@
         <link rel="preload" as="script" href="assets/ui.js">
         <!-- ICONS/STYLES -->
         <link rel="icon" href="assets/icon.svg">
+        <link rel="apple-touch-icon" href="assets/icon.svg">
+        <link rel="mask-icon" href="assets/icon.svg">
         <link rel="stylesheet" href="assets/fonts/lexend/css/all.css">
+        <link rel="stylesheet" href="assets/fonts/inconsolata/css/all.css">
         <link rel="stylesheet" href="assets/fonts/font-awesome/css/all.css">
         <link rel="stylesheet" href="assets/main.css">
         <link rel="stylesheet" href="assets/ui.css">
@@ -30,6 +35,15 @@
         <style>
             body {
                 --font-text-family: 'Lexend Deca';
+                --font-code-family: 'Inconsolata';
+            }
+
+            body main page {
+                display: none;
+            }
+
+            body main page:target {
+                display: initial;
             }
         </style>
         <!-- SCRIPTS -->
@@ -50,8 +64,10 @@
                         'dom-defaults': {
                             defaults: {
                                 'a[data-link-external]': {
-                                    target: '_blank',
-                                    rel: 'noopener noreferrer'
+                                    attr: {
+                                        target: '_blank',
+                                        rel: 'noopener noreferrer'
+                                    }
                                 }
                             }
                         },
@@ -60,7 +76,7 @@
                             renderers: {
                                 'markdown': marked
                             },
-                            default: 'markdown'
+                            default_renderer: 'markdown'
                         }
                     });
                 }
@@ -86,7 +102,9 @@
             <nav-main id="nav-main">
                 <h4><i class="fas fa-info-circle"></i> <a href="#section-about">About</a></h4>
                 <h4><i class="fas fa-bullseye"></i> <a href="#section-projects">Projects</a></h4>
-                <h4><i class="fas fa-image"></i> <a href="#section-photography">Photography</a></h4>
+                <h4><i class="fas fa-clipboard-list"></i> <a href="#section-resume">Resume</a></h4>
+                <h4><i class="fas fa-horse-head"></i> <a href="#section-photography">Photography</a></h4>
+                <h4><i class="fas fa-pen"></i> <a href="#section-blogs">Blogs</a></h4>
                 <h4><i class="fas fa-cookie-bite"></i> <a href="#section-goodies">Goodies</a></h4>
                 <h4><i class="fas fa-link"></i> <a href="#section-links">Links</a></h4>
             </nav-main>
@@ -116,6 +134,42 @@
                     </p>
                 </article>
             </page>
+            <page id="section-resume">
+                <h1><i class="fas fa-clipboard-list"></i> Resume.</h1>
+                <article>
+                    <h2>Education.</h2>
+                    <p>
+                        <h3>Institutions.</h3>
+                        <p>
+                            <a href="//ucsd.edu" data-link-external>University of California, San Diego</a> <br>
+                            <a href="//cogsci.ucsd.edu" data-link-external>B.S. with a Specialization in Machine Learning and Neural Computation</a> <br>
+                            Minor in <a href="//cse.ucsd.edu" data-link-external>Computer Science</a>
+                        </p>
+                        <h3>Courses</h3>
+                        <p>
+                            <ul>
+                                <li><b>COGS 108</b> Data Science in Practice</li>
+                                <li><b>CSE 30</b> Computer Organization and Systems Programming</li>
+                                <li><b>CSE 100</b> Advanced Data Structures</li>
+                                <li><b>CSE 101</b> Design and Analysis of Algorithms</li>
+                                <li><b>CSE 105</b> Theory of Computation</li>
+                            </ul>
+                        </p>
+                    </p>
+                    <h2>Technology Summary</h2>
+                    <p>
+                        <ul>
+                            <li><b>Languages</b> C/C++, JavaScript, Python, PHP. Bourne(-again) (<code>sh</code>, <code>bash</code>). HTML. </li>
+                            <li><b>Operating Systems</b> CentOS, Ubuntu, and a vast majority of other Linux distros. MacOS. *BSD. Windows.</li>
+                            <li><b>Technical Tools</b> <code>gcc</code>, <code>gdb</code>, Google address sanitizer (<code>libasan</code>), <code>valgrind</code>, TCP/IP, <code>named</code>, <code>dnsmasq</code>, netfilter, <code>iptables</code>, Apache, Node.js, jQuery, websocket, SQLite, <code>numpy</code>, <code>opencv</code> (<code>python</code>), <code>pandas</code>.</li>
+                        </ul>
+                    </p>
+                    <h2>Experience</h2>
+                    <p>
+                        Hands-on experience with server infrastructure management and fault-tolerant server-side application development and debugging (<code>gcc</code>, <code>gdb</code>, and <code>lasan</code>) in UNIX systems.
+                    </p>
+                </article>
+            </page>
             <page id="section-projects">
                 <h1><i class="fas fa-wrench"></i> Projects.</h1>
                 <article>
@@ -126,6 +180,12 @@
             </page>
             <page id="section-photography">
                 <h1><i class="fas fa-horse-head"></i> Photography.</h1>
+                <p>
+                    Coming soon.
+                </p>
+            </page>
+            <page id="section-blogs">
+                <h1><i class="fas fa-pen"></i> Blogs (aka. Rant Space).</h1>
                 <p>
                     Coming soon.
                 </p>
@@ -197,7 +257,7 @@
                         <article>
                             <ul>
                                 <li>
-                                    <a href="//github.com/ThomasJockin/lexend" data-link-external>Lexend Deca</a> - The primary font used in this website.
+                                    <a href="//github.com/ThomasJockin/lexend" data-link-external>Lexend Deca</a> - The primary font used on this website.
                                 </li>
                                 <li>
                                     <a href="//github.com/jquery/jquery" data-link-external>jQuery</a> - A JavaScript library used for rendering and automating HTML elements behind the scenes.

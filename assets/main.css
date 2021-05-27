@@ -10,16 +10,19 @@
         --line-text-height: 1.5;
         /*--font-text-family: unset;*/
         --font-text-size: 1em;
+        /*--font-code-family: unset;*/
         --color-text: black;
         --color-background: white;
 
+        --main-line-text-align: unset;
+
         --nav-width-max: 20em;
         --nav-line-text-height: 1;
-        --nav-color-text: white;
-        --nav-color-background: black;
+        --nav-line-text-align: right;
 
         --nav-resp-padding: 1em;
         --nav-resp-line-text-height: 1;
+        --nav-resp-line-text-align: center;
 
         --main-width-min: 60vw;
     }
@@ -57,6 +60,10 @@
         word-wrap: var(--page-text-wrap);
     }
 
+    body code {
+        font-family: var(--font-code-family);
+    }
+
     body ::-moz-selection,
     body ::selection {
         background-color: var(--color-background);
@@ -75,9 +82,12 @@
         max-width: var(--nav-width-max);
 
         padding: var(--page-margin);
+        padding-right: unset;
 
-        color: var(--nav-color-text);
-        background-color: var(--nav-color-background);
+        color: var(--color-text);
+        background-color: var(--color-background);
+
+        text-align: var(--nav-line-text-align);
     }
 
     body nav nav-header {}
@@ -91,13 +101,6 @@
         display: block;
     }
 
-    /* TODO */
-    body nav button,
-    body nav [data-button] {
-        color: var(--nav-color-background);
-        background-color: var(--nav-color-text);
-    }
-
     body main {
         grid-area: main;
         grid-row: 1;
@@ -105,18 +108,8 @@
 
         margin: var(--page-margin);
         min-width: var(--main-width-min);
-    }
 
-    body main page {
-        display: block;
-    }
-
-    body main page {
-        display: none;
-    }
-
-    body main page:target {
-        display: initial;
+        text-align: var(--main-line-text-align);
     }
 
     body [data-overflow-only] {
@@ -150,7 +143,7 @@
 
         padding: var(--nav-resp-padding) var(--page-margin);
 
-        text-align: center;
+        text-align: var(--nav-resp-line-text-align);
     }
 
     body[data-overflow] nav nav-header {

@@ -38,8 +38,9 @@
         text-rendering: auto;
     }
 
-    .ui-button,
-    [data-button] {
+
+    /* UI Element: Button */
+    .ui-button {
         border: var(--ui-border);
         border-radius: var(--ui-border-radius);
         padding: var(--ui-padding);
