@@ -33,9 +33,22 @@
         <link rel="stylesheet" href="assets/ui.css">
         <link rel="stylesheet" href="assets/markdown.css">
         <style>
-            body {
+            :root {
                 --font-text-family: 'Lexend Deca';
-                --font-code-family: 'Inconsolata';
+                --font-text-code-family: 'Inconsolata';
+
+                --color-text: black;
+                --color-background: white;
+
+                --ui-color-text: var(--color-background);
+                --ui-color-background: var(--color-text);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --color-text: #ededed;
+                    --color-background: #121212;
+                }
             }
 
             body main page {
@@ -74,6 +87,7 @@
                         'anchor-target': {},
                         'markdown': {
                             renderers: {
+                                'html': undefined,
                                 'markdown': marked
                             },
                             default_renderer: 'markdown'
@@ -100,23 +114,44 @@
                 </div>
             </nav-header>
             <nav-main id="nav-main">
-                <h4><i class="fas fa-info-circle"></i> <a href="#section-about">About</a></h4>
-                <h4><i class="fas fa-bullseye"></i> <a href="#section-projects">Projects</a></h4>
-                <h4><i class="fas fa-clipboard-list"></i> <a href="#section-resume">Resume</a></h4>
-                <h4><i class="fas fa-horse-head"></i> <a href="#section-photography">Photography</a></h4>
-                <h4><i class="fas fa-pen"></i> <a href="#section-blogs">Blogs</a></h4>
-                <h4><i class="fas fa-cookie-bite"></i> <a href="#section-goodies">Goodies</a></h4>
-                <h4><i class="fas fa-link"></i> <a href="#section-links">Links</a></h4>
+                <h4>
+                    <i class="fas fa-fw fa-info-circle"></i>
+                    <a href="#section-about">About</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-bullseye"></i>
+                    <a href="#section-projects">Projects</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <a href="#section-resume">Resume</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-horse-head"></i>
+                    <a href="#section-photography">Photography</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-pen"></i>
+                    <a href="#section-blogs">Blogs</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-cookie-bite"></i>
+                    <a href="#section-goodies">Goodies</a>
+                </h4>
+                <h4>
+                    <i class="fas fa-fw fa-link"></i>
+                    <a href="#section-links">Links</a>
+                </h4>
             </nav-main>
         </nav>
-        <main id="main" class="ui-article">
+        <main id="main" class="ui-text">
             <page id="section-cover" data-target-index>
                 <header style="
                     height: 100%;
                     display: grid;
                 " class="ui-classy">
                     <div style="align-self: end;">
-                        <i class="fas fa-kiwi-bird" style="font-size: 4em;"></i>
+                        <i class="fas fa-fw fa-kiwi-bird" style="font-size: 4em;"></i>
                         <blockquote>
                             <quote style="max-width: 15em;">
                                 That's all I do all day. I'd just be the catcher in the rye and all. I know it's crazy, but that's the only thing I'd really like to be.
@@ -127,106 +162,158 @@
                 </header>
             </page>
             <page id="section-about">
-                <h1><i class="fas fa-kiwi-bird"></i> About.</h1>
+                <h1><i class="fas fa-fw fa-kiwi-bird"></i> About.</h1>
                 <article>
                     <p>
-                        Hello stranger! It's Jared. I'm a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. With a decade's worth of experience in computer and software engineering (specifically computer networks and programming), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Besides engineering, I'm also interested in entrepreneurship. Notably the two companies that I have in mind so far are Retmax (formally Rex) Inc. (technology company) and its subsidiary eLitet (pronounced Elite-T) (telecommunication company). When not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on rationalities behind human behaviors as part of my own research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating. At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun. I'm also a senior member of UCSD's official Reddit community.
+                        Hello stranger! It's Jared. Jared is a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. Jared is also a developer, entrepreneur wannabe, DIY electrician, and music junky. Last but not least, Jared is human.
+                    </p>
+                    <h2>Engineering.</h2>
+                    <p>
+                        I always loved engineering. With a decade's worth of experience in computer and software engineering (specifically in computer networks, web services, and operating systems), I became the sysadmin of our roommate's Minecraft server in 2019, and subsequently of my family's home lab server now in 2021. As a software developer I'm also quite active in open-source communities and developer forums, where I get the chance to network with people and become part of the community. I also have a fair amount of experience in residential electrical systems. In fact, one of my dream jobs is being a part-time electrician. Learn more about the projects I've done <a href="#section-projects">here</a>.
+                    </p>
+                    <h2>Entrepreneurship.</h2>
+                    <p>
+                        Besides engineering, I'm also interested in entrepreneurship. I always wanted to found my own company, so I've been developing ideas for my future companies since the age of 7. Notably the two companies that I have in mind so far are <a href="//github.com/Retmax" data-link-external>Rex Inc.</a> (also called Retmax), a tech company and its subsidiary <a href="//github.com/eLitetInc" data-link-external>eLitet</a> (pronounced Elite-T), a telecommunication company.
+                    </p>
+                    <h2>I am human.</h2>
+                    <p>
+                        While not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on the rationalities behind human behaviors as part of my own life-long research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating.
+                    </p>
+                    <p>
+                        At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun (check out the <a href="#section-goodies">Goodies</a> section! It's gonna be fun I promise!). I'm also a senior member of <a href="//reddit.com/r/UCSD" data-link-external>UCSD's official Reddit community</a>. (Welp just kidding. I joined Reddit in 2019 and I'm kinda ancient.)
                     </p>
                 </article>
             </page>
             <page id="section-resume">
-                <h1><i class="fas fa-clipboard-list"></i> Resume.</h1>
+                <h1><i class="fas fa-fw fa-clipboard-list"></i> Resume.</h1>
                 <article>
                     <h2>Education.</h2>
                     <p>
                         <h3>Institutions.</h3>
                         <p>
-                            <a href="//ucsd.edu" data-link-external>University of California, San Diego</a> <br>
-                            <a href="//cogsci.ucsd.edu" data-link-external>B.S. with a Specialization in Machine Learning and Neural Computation</a> <br>
-                            Minor in <a href="//cse.ucsd.edu" data-link-external>Computer Science</a>
+                            <ul>
+                                <li>
+                                    <tag><strong>2019 - ?</strong></tag> <a href="//ucsd.edu" data-link-external>University of California, San Diego</a> <br>
+                                    <a href="//cogsci.ucsd.edu" data-link-external>B.S. with a Specialization in Machine Learning and Neural Computation</a> <br>
+                                    Minor in <a href="//cse.ucsd.edu" data-link-external>Computer Science</a>
+                                </li>
+                            </ul>
                         </p>
                         <h3>Courses</h3>
                         <p>
                             <ul>
-                                <li><b>COGS 108</b> Data Science in Practice</li>
-                                <li><b>CSE 30</b> Computer Organization and Systems Programming</li>
-                                <li><b>CSE 100</b> Advanced Data Structures</li>
-                                <li><b>CSE 101</b> Design and Analysis of Algorithms</li>
-                                <li><b>CSE 105</b> Theory of Computation</li>
+                                <li><strong>COGS 108</strong> Data Science in Practice</li>
+                                <li><strong>CSE 30</strong> Computer Organization and Systems Programming</li>
+                                <li><strong>CSE 100</strong> Advanced Data Structures</li>
+                                <li><strong>CSE 101</strong> Design and Analysis of Algorithms</li>
+                                <li><strong>CSE 105</strong> Theory of Computation</li>
                             </ul>
                         </p>
                     </p>
                     <h2>Technology Summary</h2>
                     <p>
                         <ul>
-                            <li><b>Languages</b> C/C++, JavaScript, Python, PHP. Bourne(-again) (<code>sh</code>, <code>bash</code>). HTML. </li>
-                            <li><b>Operating Systems</b> CentOS, Ubuntu, and a vast majority of other Linux distros. MacOS. *BSD. Windows.</li>
-                            <li><b>Technical Tools</b> <code>gcc</code>, <code>gdb</code>, Google address sanitizer (<code>libasan</code>), <code>valgrind</code>, TCP/IP, <code>named</code>, <code>dnsmasq</code>, netfilter, <code>iptables</code>, Apache, Node.js, jQuery, websocket, SQLite, <code>numpy</code>, <code>opencv</code> (<code>python</code>), <code>pandas</code>.</li>
+                            <li><strong>Languages</strong> C/C++, JavaScript, Python, PHP. Bourne(-again) (<code>sh</code>, <code>bash</code>). HTML. </li>
+                            <li><strong>Operating Systems</strong> CentOS, Ubuntu, and a vast majority of other Linux distros. MacOS. *BSD. Windows.</li>
+                            <li><strong>Technical Tools</strong> <code>gcc</code>, <code>gdb</code>, Google address sanitizer (<code>libasan</code>), <code>valgrind</code>, TCP/IP, <code>named</code>, <code>dnsmasq</code>, netfilter, <code>iptables</code>, Apache, Node.js, jQuery, websocket, SQLite, <code>numpy</code>, <code>opencv</code> (<code>python</code>), <code>pandas</code>.</li>
                         </ul>
                     </p>
                     <h2>Experience</h2>
                     <p>
-                        Hands-on experience with server infrastructure management and fault-tolerant server-side application development and debugging (<code>gcc</code>, <code>gdb</code>, and <code>lasan</code>) in UNIX systems.
+                        Hands-on experience with server infrastructure management and fault-tolerant server-side application development and debugging (<code>gcc</code>, <code>gdb</code>, <code>lasan</code>, and <code>valgrind</code>) in UNIX systems.
                     </p>
                 </article>
             </page>
             <page id="section-projects">
-                <h1><i class="fas fa-wrench"></i> Projects.</h1>
+                <h1><i class="fas fa-fw fa-wrench"></i> Projects.</h1>
                 <article>
                     <p>
-                        You enjoy doing engineering projects. And, so do I! I can't build flying cars (yet! although I know some of you can), but like everybody else I just want to keep my hands busy! Just as some legend once said, <a href="//homedepot.com" data-link-external>"More saving. More doing."</a> I say why not "More doing. More saving" 'cause ya know, engineering is life, engineering is $$ dawg! Okay cringe talk over. I just want to let you know that I do virtually any kind of engineering projects - whether it's computer software or computer hardware or just plain old electrical work. Obviously I have gained a lot of experience from those projects during the past few years, and I learned a lot - from understanding the real-world applications of computer algorithms to something as simple as adding an outlet to the wall... Yet still, nothing is more important than the fact that I had fun, and that at least I have something I can brag about...
+                        You enjoy doing engineering projects. And, so do I! I can't build flying cars (yet! although I know some of you can), but like everybody else I just want to keep my hands busy! - Just as some legend once said, <a href="//homedepot.com" data-link-external>"More saving. More doing."</a> I say why not "More doing. More saving" 'cause ya know, engineering is life, engineering is $$ dawg! Okay cringe talk over. I just want to let you know that I do virtually any kind of engineering projects - whether it's computer software or computer hardware or just plain old electrical work. Obviously I have gained a lot of experience from those projects during the past few years, and I learned a lot - from understanding the real-world applications of computer algorithms to something as simple as adding an outlet to the wall... Yet still, nothing is more important than the fact that I had fun, and that at least I have something I can brag about...
+                    </p>
+                    <h2>Pre-2019.</h2>
+                    <p>
+
+                    </p>
+                    <h2>2019 - Now.</h2>
+                    <p>
+
                     </p>
                 </article>
             </page>
             <page id="section-photography">
-                <h1><i class="fas fa-horse-head"></i> Photography.</h1>
+                <h1><i class="fas fa-fw fa-horse-head"></i> Photography.</h1>
                 <p>
                     Coming soon.
                 </p>
             </page>
             <page id="section-blogs">
-                <h1><i class="fas fa-pen"></i> Blogs (aka. Rant Space).</h1>
-                <p>
-                    Coming soon.
-                </p>
+                <h1><i class="fas fa-fw fa-pen"></i> Blogs (aka. Rant Space).</h1>
+                <section id="section-blogs-cat125">
+                    <article>
+                        <md src="media/blogs/article-critique.html" format="html"></md>
+                    </article>
+                </section>
             </page>
             <page id="section-goodies">
-                <h1><i class="fas fa-stroopwafel"></i> Goodies.</h1>
+                <h1><i class="fas fa-fw fa-stroopwafel"></i> Goodies.</h1>
                 <p>
-                    My collection of good <a href="#section-goodies-music">songs</a> and <a href="#section-goodies-memes">memes</a>.
+                    My collection of good songs and memes.
                 </p>
                 <section id="section-goodies-music">
-                    <h1>Music.</h1>
+                    <h2>Music.</h2>
                     <p>
                         Coming soon. Stay Tuned!
                     </p>
                 </section>
                 <section id="section-goodies-memes">
-                    <h1>Memes.</h1>
+                    <h2>Memes.</h2>
                     <p>
                         Coming soon. Stay Tuned!
                     </p>
                 </section>
             </page>
             <page id="section-links">
-                <h1><i class="fas fa-link"></i> Links & Resources.</h1>
+                <h1><i class="fas fa-fw fa-link"></i> Links & Resources.</h1>
                 <p>
                     Additional information about me and my website and some other stuffs that you might find interesting.
                 </p>
                 <section id="section-links-myself">
-                    <h1>More On Myself.</h1>
+                    <h2>More On Myself.</h2>
                     <p>
                         Fun fact: I'm working on it.
                     </p>
+                    <h3>Where You Can Find Me.</h3>
+                    <article class="ui-gallery">
+                        <card class="ui-card ui-card-layout-portrait" style="width: 10em;">
+                            <card-header class="ui-compact">
+                                <i class="fab fa-4x fa-reddit"></i>
+                                <h1>Reddit!</h1>
+                                <a href="//reddit.com/u/jaredierr" data-link-external>u/jaredierr</a>
+                            </card-header>
+                            <!--<card-main>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel odio sed sapien lacinia congue. Donec pharetra, quam id finibus tincidunt, massa sem facilisis augue, non lacinia tortor quam in nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elit nibh, facilisis id dignissim eu, ullamcorper imperdiet est. Sed suscipit orci ut diam tristique porta. Aliquam vel velit a ante mattis imperdiet nec non leo. Nunc gravida dolor id pulvinar malesuada.
+                            </card-main>-->
+                        </card>
+                        <card class="ui-card ui-card-layout-portrait" style="width: 10em;">
+                            <card-header class="ui-compact">
+                                <i class="fab fa-4x fa-github"></i>
+                                <h1>Github!</h1>
+                                <a href="//github.com/oakaigh" data-link-external>@oakaigh</a>
+                            </card-header>
+                            <card-main>
+                                <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel odio sed sapien lacinia congue. Donec pharetra, quam id finibus tincidunt, massa sem facilisis augue, non lacinia tortor quam in nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elit nibh, facilisis id dignissim eu, ullamcorper imperdiet est. Sed suscipit orci ut diam tristique porta. Aliquam vel velit a ante mattis imperdiet nec non leo. Nunc gravida dolor id pulvinar malesuada.-->
+                            </card-main>
+                        </card>
+                    </article>
                 </section>
                 <section id="section-links-misc">
-                    <h1>More On Engineering, UI/UX, and Machine Learning.</h1>
+                    <h2>More On Engineering, UI/UX, and Machine Learning.</h2>
                     <p>
                         Coming soon.
                     </p>
                 </section>
                 <section id="section-links-website">
-                    <h1>About This <a href="//github.com/oakaigh/oakaigh.github.io" data-link-external>Website</a>.</h1>
+                    <h2>About This <a href="//github.com/oakaigh/oakaigh.github.io" data-link-external>Website</a>.</h2>
                     <article>
                         <p>
                             This website was made blazing fast and available to the billions thanks to <a href="//www.cloudflare.com" data-link-external>Cloudflare</a>'s Content Delivery Network around the globe. This website would also not be possible without the help of <a href="//pages.github.com" data-link-external>GitHub Pages</a>. GitHub hosted 99% of the content of this website completely for free, so did Cloudflare. Big thanks to them for hosting my website.
@@ -239,9 +326,9 @@
                             <a href="//wikipedia.org/wiki/The_Catcher_in_the_Rye" data-link-external>The Catcher in the Rye (1951)</a> by <a href="//wikipedia.org/wiki/J._D._Salinger" data-link-external>J. D. Salinger</a> Chapter 22.
                         </p>
                     </article>
-                    <h1>Open Source and Licensing.</h1>
+                    <h2>Open Source and Licensing.</h2>
                     <article>
-                        <h1>License.</h1>
+                        <h3>License.</h3>
                         <license style="
                             max-width: 20em;
                             margin: auto;
@@ -253,18 +340,13 @@
                                 This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/" data-link-external>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
                             </p>
                         </license>
-                        <h1>Credits.</h1>
+                        <h3>Credits.</h3>
                         <article>
                             <ul>
-                                <li>
-                                    <a href="//github.com/ThomasJockin/lexend" data-link-external>Lexend Deca</a> - The primary font used on this website.
-                                </li>
-                                <li>
-                                    <a href="//github.com/jquery/jquery" data-link-external>jQuery</a> - A JavaScript library used for rendering and automating HTML elements behind the scenes.
-                                </li>
-                                <li>
-                                    <a href="//github.com/markedjs/marked" data-link-external>Marked</a> - A JavaScript <a href="//daringfireball.net/projects/markdown" data-link-external>Markdown</a> text rendering engine.
-                                </li>
+                                <li><a href="//github.com/ThomasJockin/lexend" data-link-external>Lexend Deca</a> - The primary font used on this website.</li>
+                                <li><a href="//github.com/googlefonts/Inconsolata" data-link-external>Inconsolata</a> - The monospace font used on this website.</li>
+                                <li><a href="//github.com/jquery/jquery" data-link-external>jQuery</a> - A JavaScript library for rendering and automating HTML elements.</li>
+                                <li><a href="//github.com/markedjs/marked" data-link-external>Marked</a> - A JavaScript library for rendering <a href="//daringfireball.net/projects/markdown" data-link-external>Markdown</a> texts.</li>
                             </ul>
                         </article>
                         <p>&copy; 2021 Jared C</p>

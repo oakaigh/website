@@ -1,18 +1,30 @@
 @supports (display: grid) and (--invalid: unset) {
     /* UI Common */
     :root {
+        --ui-color-text: unset;
+        --ui-color-background: unset;
+
+        --ui-page-margin: 1em;
+
         --ui-border: none;
-        --ui-border-radius: 0.1em;
-        --ui-padding: 0.1em 0.5em;
+        --ui-border-radius: 0.25em;
+        --ui-padding: 0.25em 0.5em;
+
+        --ui-gap: 1em;
 
         --ui-selection-opacity: 0.5;
     }
 
+
+    /* UI Element: Selections */
     ::-moz-selection,
     ::selection {
+        background-color: var(--ui-color-background);
         opacity: var(--ui-selection-opacity);
     }
 
+
+    /* UI Element: Hyperlinks */
     a {
         color: inherit;
         text-decoration: none;
@@ -22,28 +34,87 @@
         text-decoration: underline;
     }
 
-    .ui-unselectable,
-    [data-unselectable] {
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
 
-    .ui-font-smoothing,
-    [data-font-smoothing] {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: auto;
-    }
+    /* UI Element: Layout - Navigation */
+    nav {}
+    nav nav-header {}
+    nav nav-main {}
+
+
+    /* UI Element: Layout - Main Content */
+    main {}
 
 
     /* UI Element: Button */
-    .ui-button {
+    tag, .ui-tag {
         border: var(--ui-border);
         border-radius: var(--ui-border-radius);
         padding: var(--ui-padding);
+        color: var(--ui-color-text);
+        background-color: var(--ui-color-background);
+    }
+
+
+    /* UI Element: Card */
+    card {
+        display: block;
+    }
+
+    card card-header {}
+    card card-main {}
+
+    .ui-card {
+        border: var(--ui-border);
+        border-radius: var(--ui-border-radius);
+        padding: var(--ui-page-margin);
+        color: var(--ui-color-text);
+        background-color: var(--ui-color-background);
+    }
+
+    .ui-card.ui-card-layout-cozy {
+        display: grid;
+        grid-template-areas: 'header main';
+        grid-column-gap: var(--ui-gap);
+    }
+
+    .ui-card.ui-card-layout-cozy card-header {
+        grid-area: header;
+        text-align: center;
+    }
+
+    .ui-card.ui-card-layout-cozy card-main {
+        grid-area: main;
+        text-align: left;
+    }
+
+    .ui-card.ui-card-layout-portrait {
+        display: grid;
+        grid-template-areas: 'header' 'main';
+        grid-row-gap: var(--ui-gap);
+    }
+
+    .ui-card.ui-card-layout-portrait card-header {
+        grid-area: header;
+        text-align: center;
+    }
+
+    .ui-card.ui-card-layout-portrait card-main {
+        grid-area: main;
+        text-align: center;
+    }
+
+    /* UI Element: Button */
+    button {
+        font: unset;
+    }
+
+    .ui-button {
+        cursor: pointer;
+        border: var(--ui-border);
+        border-radius: var(--ui-border-radius);
+        padding: var(--ui-padding);
+        color: var(--ui-color-text);
+        background-color: var(--ui-color-background);
     }
 
 
@@ -71,16 +142,64 @@
     }
 
 
-    /* UI Theme: Article */
-    .ui-article {}
+    /* UI Theme: Unselectable */
+    .ui-unselectable,
+    [data-unselectable] {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-    .ui-article a,
-    a.ui-article {
+
+    /* UI Theme: Font Smoothing */
+    .ui-font-smoothing,
+    [data-font-smoothing] {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: auto;
+    }
+
+
+    /* UI Theme: Compact */
+    .ui-compact * {
+        margin: unset;
+    }
+
+
+    /* UI Theme: License */
+    license, .ui-license {}
+
+
+    /* UI Theme: Gallery */
+    gallery, .ui-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--ui-gap);
+    }
+
+
+    /* UI Theme: Article */
+    article, .ui-article {
+        --ui-article-header-margin: unset;
+    }
+
+    article header *,
+    .ui-article header *,
+    header.ui-article * {
+        margin: unset;
+    }
+
+
+    /* UI Theme: Text */
+    .ui-text a,
+    a.ui-text {
         text-decoration: underline;
     }
 
-    .ui-article a:hover,
-    a.ui-article:hover {
+    .ui-text a:hover,
+    a.ui-text:hover {
         text-decoration: none;
     }
 

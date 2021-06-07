@@ -94,7 +94,8 @@ modules['markdown'] = function (args)
     });
 
     function render_markdown(o, text, renderer) {
-        return o.html(eval(args['renderers'][renderer])(text));
+        var renderer = eval(args['renderers'][renderer]);
+        return renderer !== undefined ? o.html(renderer(text)) : o.html(text);
     }
 
     for (const e of $(attr_md).toArray()) {

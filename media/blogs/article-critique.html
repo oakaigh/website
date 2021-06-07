@@ -1,0 +1,86 @@
+<header>
+    <h2>Critique.</h2>
+    <h3>Linux kernel coding standard, a closer look.</h3>
+</header>
+<p>
+    Anyone who plans to dip their toes into the software engineering industry should at least follow a coding style guide, before "making a mess" of their projects. I made the mistake of not referencing a single style guide before my first C/C++ project - I paid the price and I learned by the numbers. I personally found <a href="//wikipedia.org/wiki/Linus_Torvalds" data-link-external>Linus Torvalds</a>'s <a href="//kernel.org/doc/html/latest/process/coding-style.html" data-link-external>Linux kernel coding style</a> guide quite convincing. It wasn't until years later I <strong>accidentally</strong> discovered this guide (upon writing a Linux kernel module) and took a close look at it then I realized - oof, aren't those things what I've been doing this whole time? Things would definitely be different if I <strong>chose</strong> to follow a neat style guide in the first place. And I recommend this style guide not only because it agrees with my own coding standards I derived all those years, but also because it's generally reflective of what good engineering practices in programming would look like.
+</p>
+<p>
+    The style guide, albeit short, has a clear structure. From something as complicated as the relationship between language aesthetics and code optimizability to something as simple as the size of indentation or the naming of variables, Torvalds and co-authors were all able to bring them together in one piece and present them in the most concise (yet the most "human-readable") way. Section titles are short, sweet, and conclusive, and most importantly, devoid of tech jargons. For instance, the title of a section "Breaking long lines and strings" could have been "Line breaking" or "Word wrapping" but the authors deliberately avoided it because placing verbs before nouns enhances readability. Bullet points were also used in several places to enumerate either rationales of certain practices or cases in which certain practices should be adopted or avoided.
+</p>
+<p>
+    Apart from ethos and logos, Torvalds also made good use of pathos. The audience were addressed as "you" rather than "he/she/they." This shows genuine care for the audience. "You know you're brilliant, but maybe you'd like to understand what you did 2 weeks from now," wrote Torvalds, on the best number of variables inside a function. Instead, Torvalds could have said "You don't want those ugly morons in your function to piss you off after two weeks of UCSD's horrible finals." But obviously he went the other way around, approaching the audience in a nearly conversational tone. While this may seem trivial from an individual's point of view, it's actually essential to the effective communication among team members or contributors in a large project, because when everyone feels included, anything becomes possible.
+</p>
+<p>
+    Now, as a stranger to this field of engineering, you would probably be thinking - wait, why are we talking all this? Isn't programming just a bunch of nerdy witches and warlocks casting magic spells on computers that mortal humans couldn't understand? Unfortunately, the answer is NO. There's no magic spells, no voodoos, no witchcrafts, no nothing - magic spells are for mathematicians and we are no mathematicians. As a matter of fact, if you would insist, computers are the biggest witchy voodooy nerds of all time - it performs computations behind the scenes that we, as "mortal" humans, would never comprehand. Think of programmers as professional writers - they may not write in the same language as you do, but the languages they use are nontheless subsets of human languages you would use everyday, except those subsets are strict subsets that put more emphasis on consistency and logical reasonings. Therefore, Aristotle's rule of three (ethos, pathos, and logos) still applies, although pathos might not be as apparent as the rest of the three. While the guide in and out of itself is an example of Aristotle's rule of three, many of the coding practices it recommends are nevertheless the same.
+</p>
+<!--<p>
+    What cuts straight to the point of pathos is aesthetics. Consider the following blocks of code (From left to right: Linux Coding Standards; <a href="//gnu.org/prep/standards/standards.html" data-link-external>GNU Coding Standards</a>; some hillbilly standards):
+</p>
+    <gallery>
+<pre>
+int func(int x)
+{
+    int tmp = 1;
+
+    if (x == 0) {
+        return tmp * x;
+    } else {
+        while (true) {
+            if (x != 0) {
+                tmp += x;
+                break;
+            }
+        }
+    }
+
+    return x;
+}
+</pre>
+<pre>
+int
+func(int x)
+{
+  int tmp = 1;
+
+  if (x == 0)
+    {
+      return tmp * x;
+    }
+  else
+    {
+      while (true)
+        {
+          if (x != 0)
+            {
+              tmp += x;
+              break;
+            }
+        }
+    }
+
+  return x;
+}
+</pre>
+<pre>
+int someRandomFunction(int num) {
+    int randomVar = 1;
+    if( num == 0 ){
+        return randomVar * x;
+    }
+    else{
+        while (1){
+            if( num != 0 )
+            {
+                randomVar += num;
+                break;
+            }
+        }
+    }
+    return num;
+}
+</pre>
+    </gallery>
+<p>
+    Which one looks most aesthetically pleasing? Linux's is the clear winner. The hillbilly one is apparently the worst, yet it's still the most common one found in CSE lecture slides. GNU's is only slightly better as the use of space and indentation is fairly consistent.
+</p>-->

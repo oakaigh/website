@@ -1,18 +1,18 @@
 @supports (display: grid) and (--invalid: unset) {
     :root {
         color-scheme: light dark;
-    }
 
-    body {
         --page-margin: 4em;
         --page-text-wrap: break-word;
 
-        --line-text-height: 1.5;
-        /*--font-text-family: unset;*/
+        --color-text: unset;
+        --color-background: unset;
+
+        --font-text-family: unset;
+        --font-text-code-family: unset;
+
         --font-text-size: 1em;
-        /*--font-code-family: unset;*/
-        --color-text: black;
-        --color-background: white;
+        --line-text-height: 1.5;
 
         --main-line-text-align: unset;
 
@@ -25,13 +25,6 @@
         --nav-resp-line-text-align: center;
 
         --main-width-min: 60vw;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        body {
-            --color-text: #ededed;
-            --color-background: #121212;
-        }
     }
 
     * {
@@ -60,19 +53,13 @@
         word-wrap: var(--page-text-wrap);
     }
 
+    body pre,
     body code {
-        font-family: var(--font-code-family);
-    }
-
-    body ::-moz-selection,
-    body ::selection {
-        background-color: var(--color-background);
+        font-family: var(--font-text-code-family);
     }
 
     body nav {
         grid-area: nav;
-        grid-row: 1;
-        grid-column: 1;
 
         position: sticky;
         top: 0;
@@ -103,8 +90,6 @@
 
     body main {
         grid-area: main;
-        grid-row: 1;
-        grid-column: 2;
 
         margin: var(--page-margin);
         min-width: var(--main-width-min);
@@ -121,8 +106,11 @@
     }
 
     body[data-overflow] {
+        grid-template-areas: 'nav' 'main';
         grid-template-columns: 100%;
         grid-template-rows: auto;
+
+        min-height: 100vh;
     }
 
     body[data-overflow] [data-overflow-hold] {
@@ -134,9 +122,6 @@
     }
 
     body[data-overflow] nav {
-        grid-row: 1;
-        grid-column: 1;
-
         height: unset;
         width: 100%;
         max-width: unset;
@@ -156,8 +141,5 @@
 
     body[data-overflow] nav nav-main {}
 
-    body[data-overflow] main {
-        grid-row: 2;
-        grid-column: 1;
-    }
+    body[data-overflow] main {}
 }
