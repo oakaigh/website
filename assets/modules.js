@@ -84,33 +84,51 @@ modules['anchor-target'] = function (args)
 
 modules['markdown'] = function (args)
 {
-    const attr_renderer = 'format',
-          attr_md = 'md',
-          attr_md_src = 'src';
-
     var args = module_args(args, {
         renderers: undefined,
         default_renderer: undefined
     });
 
-    function render_markdown(o, text, renderer) {
-        var renderer = eval(args['renderers'][renderer]);
-        return renderer !== undefined ? o.html(renderer(text)) : o.html(text);
+    function render(parent, selector) {
+        const attr_src = 'src',
+              attr_format = 'format';
+
+        function render_fn(o, text, renderer) {
+            o.html(
+                typeof renderer !== 'undefined' ?
+                    renderer(text) : text
+            );
+            render(o, selector);
+        }
+
+        for (const e of parent.find(selector).toArray()) {
+            var o = $(e);
+            var src = o.attr(attr_src);
+            var renderer = o.attr(attr_format);
+            if (typeof renderer === 'undefined' || renderer === false)
+                renderer = args['default_renderer'];
+            renderer = args['renderers'][renderer];
+
+            if (typeof src === 'undefined' || src === false) {
+                render_fn(o, o.html(), renderer);
+            } else {
+                $.get(src, function (data) {
+                    render_fn(o, data, renderer);
+                });
+            }
+        }
     }
 
-    for (const e of $(attr_md).toArray()) {
-        var o = $(e);
-        var src = o.attr(attr_md_src);
-        var renderer = o.attr(attr_renderer);
-        if (typeof renderer === 'undefined' || renderer === false)
-            renderer = args['default_renderer'];
+    render($(document), 'md');
+};
 
-        if (typeof src === 'undefined' || src === false) {
-            render_markdown(o, o.html(), renderer);
-        } else {
-            $.get(src, function (data) {
-                render_markdown(o, data, renderer);
-            });
-        }
+modules['wait-requests'] = function (args) {
+    var args = module_args(args, {
+        callback: undefined
+    });
+
+    var callback = args['callback'];
+    if (typeof callback !== 'undefined') {
+        $(document).ajaxStop(callback);
     }
 };

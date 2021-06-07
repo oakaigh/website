@@ -15,12 +15,12 @@
         <link rel="preload" as="font" type="font/ttf" crossorigin href="assets/fonts/inconsolata/css/inconsolata/fonts/ttf/Inconsolata-Bold.ttf">
         <link rel="preload" as="style" href="assets/fonts/font-awesome/css/all.css">
         <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/font-awesome/webfonts/fa-solid-900.woff2">
-        <link rel="preload" as="style" href="assets/main.css">
+        <link rel="preload" as="style" href="assets/body.css">
         <link rel="preload" as="style" href="assets/ui.css">
         <link rel="preload" as="style" href="assets/markdown.css">
         <link rel="preload" as="script" href="assets/jquery/dist/jquery.min.js">
         <link rel="preload" as="script" href="assets/marked/marked.min.js">
-        <link rel="preload" as="script" href="assets/main.js">
+        <link rel="preload" as="script" href="assets/modules.js">
         <link rel="preload" as="script" href="assets/ui.js">
         <!-- ICONS/STYLES -->
         <link rel="icon" href="assets/icon.svg">
@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="assets/fonts/lexend/css/all.css">
         <link rel="stylesheet" href="assets/fonts/inconsolata/css/all.css">
         <link rel="stylesheet" href="assets/fonts/font-awesome/css/all.css">
-        <link rel="stylesheet" href="assets/main.css">
+        <link rel="stylesheet" href="assets/body.css">
         <link rel="stylesheet" href="assets/ui.css">
         <link rel="stylesheet" href="assets/markdown.css">
         <style>
@@ -62,35 +62,41 @@
         <!-- SCRIPTS -->
         <script src="assets/jquery/dist/jquery.min.js"></script>
         <script src="assets/marked/marked.min.js"></script>
-        <script src="assets/main.js"></script>
+        <script src="assets/modules.js"></script>
         <script src="assets/ui.js"></script>
         <script>
             $(document).ready(
                 function () {
                     module_init({
-                        'overflow': {
-                            axis: 'x',
-                            child: $(document.body),
-                            parent: $(window)
-                        },
-                        'toggle-switch': {},
-                        'dom-defaults': {
-                            defaults: {
-                                'a[data-link-external]': {
-                                    attr: {
-                                        target: '_blank',
-                                        rel: 'noopener noreferrer'
-                                    }
-                                }
-                            }
-                        },
-                        'anchor-target': {},
                         'markdown': {
                             renderers: {
                                 'html': undefined,
                                 'markdown': marked
                             },
                             default_renderer: 'markdown'
+                        },
+                        'wait-requests': {
+                            callback: function () {
+                                module_init({
+                                    'dom-defaults': {
+                                        defaults: {
+                                            'a[data-link-external]': {
+                                                attr: {
+                                                    target: '_blank',
+                                                    rel: 'noopener noreferrer'
+                                                }
+                                            }
+                                        }
+                                    },
+                                    'overflow': {
+                                        axis: 'x',
+                                        child: $(document.body),
+                                        parent: $(window)
+                                    },
+                                    'anchor-target': {},
+                                    'toggle-switch': {}
+                                });
+                            }
                         }
                     });
                 }
@@ -126,18 +132,18 @@
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <a href="#section-resume">Resume</a>
                 </h4>
-                <h4>
+                <!--<h4>
                     <i class="fas fa-fw fa-horse-head"></i>
                     <a href="#section-photography">Photography</a>
-                </h4>
+                </h4>-->
                 <h4>
                     <i class="fas fa-fw fa-pen"></i>
                     <a href="#section-blogs">Blogs</a>
                 </h4>
-                <h4>
+                <!--<h4>
                     <i class="fas fa-fw fa-cookie-bite"></i>
                     <a href="#section-goodies">Goodies</a>
-                </h4>
+                </h4>-->
                 <h4>
                     <i class="fas fa-fw fa-link"></i>
                     <a href="#section-links">Links</a>
@@ -193,7 +199,7 @@
                         <p>
                             <ul>
                                 <li>
-                                    <tag><strong>2019 - ?</strong></tag> <a href="//ucsd.edu" data-link-external>University of California, San Diego</a> <br>
+                                    <tag><strong>2019 - Now</strong></tag> <a href="//ucsd.edu" data-link-external>University of California, San Diego</a> <br>
                                     <a href="//cogsci.ucsd.edu" data-link-external>B.S. with a Specialization in Machine Learning and Neural Computation</a> <br>
                                     Minor in <a href="//cse.ucsd.edu" data-link-external>Computer Science</a>
                                 </li>
@@ -226,19 +232,73 @@
             </page>
             <page id="section-projects">
                 <h1><i class="fas fa-fw fa-wrench"></i> Projects.</h1>
-                <article>
+                <p>
+                    You enjoy doing engineering projects. And, so do I! I can't build flying cars (yet! although I know some of you can), but like everybody else I just want to keep my hands busy! - Just as some legend once said, <a href="//homedepot.com" data-link-external>"More saving. More doing."</a> I say why not "More doing. More saving" 'cause ya know, engineering is life, engineering is $$ dawg! Okay cringe talk over. I just want to let you know that I do virtually any kind of engineering projects - whether it's computer software or computer hardware or just plain old electrical work. Obviously I have gained a lot of experience from those projects during the past few years, and I learned a lot - from understanding the real-world applications of computer algorithms to something as simple as adding an outlet to the wall... Yet still, nothing is more important than the fact that I had fun, and that at least I have something I can brag about...
+                </p>
+                <section id="section-projects-software">
+                    <header><h2>Software.</h2></header>
+                    <timeline>
+                        <timeline-group>
+                            <timeline-header><h1>2019 - Now</h1></timeline-header>
+                            <timeline-main>
+                                <h3><tag>HTML</tag> <tag>JavaScript</tag> <a href="//github.com/oakaigh/oakaigh.github.io" data-link-external>Personal Website.</a></h3>
+                                <p>
+                                    This website is one of the software engineering projects I'm working on! See the <a href="#section-links">Links</a> section for details.
+                                </p>
+                                <h3><tag>C/C++</tag> libnetwork (<code>lnetwork</code>)</h3>
+                                <p>
+                                    A generic <code>network</code> library designed to make performance-oriented network programming fun and easy. I've been planning this project for years now. It might end up becoming a userspace network stack. We don't know yet.
+                                </p>
+                                <h3><tag>Bash</tag> <code>bashutils</code> (formally <a href="//github.com/oakaigh/azucar" data-link-external>azucar</a>)</h3>
+                                <p>
+                                    Utility library for <code>bash</code>. Its original name en español stands for "syntax suger." I current don't have the motivation to maintain it. If you are interested definitely reach out on GitHub.
+                                </p>
+                            </timeline-main>
+                        </timeline-group>
+                        <timeline-group>
+                            <timeline-header><h1>2018</h1></timeline-header>
+                            <timeline-main>
+                                <h3><tag>C</tag> <a href="//github.com/oakaigh/xt_tls" data-link-external>xt_tls</a></h3>
+                                <p>
+                                    A Linux netfilter iptables module for filtering internet traffic based on hostnames present in HTTP and HTTPS TLS (SNI, Server Name Indication) headers. Extremely half-baked because I didn't bother to test it. The project was based on <a href="//github.com/Lochnair" data-link-external>@Lochnair</a>'s <a href="//github.com/Lochnair/xt_tls">original project</a> of the same name.
+                                </p>
+                                <h3><tag>C</tag> <a href="//shadowsocks.org" data-link-external>Shadowsocks</a> - <a href="//github.com/shadowsocks/shadowsocks-libev" data-link-external>shadowsocks-libev</a></h3>
+                                <p>
+                                    A variant of the bloated SOCKS protocol with authentication headers completely ripped off (yay!), featuring end-to-end encryption. The lack of TCP session multiplexing was a bummer, otherwise we would have saved a ton of latencies caused by the TCP three-way handshake processes alone. I originally contributed to this project by adding TCP Fast Open support for the transparent proxy client, hoping it would potentially mitigate the problem, but to no avail. TCP Fast Open failed for obvious reasons - it's a hack. I'm planning to write a TCP session multiplexer as part of my libnetwork project. Maybe if y'all didn't use TCP for HTTP in the first place we wouldn't have this mess (given that 95% of time we use proxies or VPNs for web browsing). QUIC is the future of HTTP anyways.
+                                </p>
+                            </timeline-main>
+                        </timeline-group>
+                        <timeline-group>
+                            <timeline-header><h1>2017</h1></timeline-header>
+                            <timeline-main>
+                                <h3><tag>HTML</tag> <tag>JavaScript</tag> <a href="//github.com/eLitetInc/tv.elitet.org" data-link-external>Live TV</a></h3>
+                                <p>
+                                    Poor man's IPTV. Turns your browser into a live TV instantly. Similar to <a href="//pluto.tv" data-link-external>Pluto TV</a> but isn't legit. The user experience is slightly superier though, because you can switch channels seamlessly just using the up/down arrow key on your keyboard, similar to how you switch channels on a remote.
+                                </p>
+                                <h3><tag>HTML</tag> <tag>JavaScript</tag> <a href="//elitet.org" data-link-external>elitet.org</a></h3>
+                                <p>
+                                    Another website project! Except this time it's for the future telecommunication company (eLitet) I'm planning.
+                                </p>
+                                <h3><tag>C++</tag> Stacie</h3>
+                                <p>
+                                    A multithreaded download manager that simply <strong>just does NOT work</strong>. Similar to <a href="//github.com/aria2/aria2" data-link-external>aria2</a> but again, it <strong>just does NOT work</strong>. I reckon the algorithm is correct - but the actual implementation... ugh it's a nightmare.
+                                </p>
+                            </timeline-main>
+                        </timeline-group>
+                    </timeline>
+                </section>
+                <section id="section-projects-it">
+                    <header><h2>IT.</h2></header>
                     <p>
-                        You enjoy doing engineering projects. And, so do I! I can't build flying cars (yet! although I know some of you can), but like everybody else I just want to keep my hands busy! - Just as some legend once said, <a href="//homedepot.com" data-link-external>"More saving. More doing."</a> I say why not "More doing. More saving" 'cause ya know, engineering is life, engineering is $$ dawg! Okay cringe talk over. I just want to let you know that I do virtually any kind of engineering projects - whether it's computer software or computer hardware or just plain old electrical work. Obviously I have gained a lot of experience from those projects during the past few years, and I learned a lot - from understanding the real-world applications of computer algorithms to something as simple as adding an outlet to the wall... Yet still, nothing is more important than the fact that I had fun, and that at least I have something I can brag about...
+                        Ever since my roommate and I got our server we could barely keep our hands off servers a single day. The IT industry is amazing, but it's also no less labor intensive than the compsci industry. As a system administrator you may not make too many mistakes, as bad decisions often lead to disastrous consequences. Your job is to keep the system up and running 24/7/365. As previously mentioned in the <a href="#section-about">About</a> section, I kept the Minecraft server running during my stay at UCSD. Even though we wasted tons of electricity and got no money in return, it was generally a fun experience.
                     </p>
-                    <h2>Pre-2019.</h2>
+                </section>
+                <section id="section-projects-electrical">
+                    <header><h2>Residential Electrical.</h2></header>
                     <p>
-
+                        I'm probably more of a handyman than an electrician (but I don't do plumbing or any socially abominable things like that). Plus, I'm not certified. I may not be well versed in the details of the National Electric Code but I know what to expect in general. As always anything I'm not sure or don't know, I ask google.
                     </p>
-                    <h2>2019 - Now.</h2>
-                    <p>
-
-                    </p>
-                </article>
+                </section>
             </page>
             <page id="section-photography">
                 <h1><i class="fas fa-fw fa-horse-head"></i> Photography.</h1>
@@ -279,9 +339,9 @@
                 </p>
                 <section id="section-links-myself">
                     <h2>More On Myself.</h2>
-                    <p>
+                    <!--<p>
                         Fun fact: I'm working on it.
-                    </p>
+                    </p>-->
                     <h3>Where You Can Find Me.</h3>
                     <article class="ui-gallery">
                         <card class="ui-card ui-card-layout-portrait" style="width: 10em;">
@@ -307,10 +367,52 @@
                     </article>
                 </section>
                 <section id="section-links-misc">
-                    <h2>More On Engineering, UI/UX, and Machine Learning.</h2>
+                    <h2>More On Engineering.</h2>
                     <p>
-                        Coming soon.
+                        Take relevant classes if you are interested! I also recommend these YouTube channels:
                     </p>
+                    <article>
+                        <h3>Computer Science, Computer Engineering.</h3>
+                        <p>
+                            <a href="//youtube.com/c/LinusTechTips" data-link-external>LinusTechTips</a>! We all knew it! If you didn't, give it a shot you won't regret it. Not giving out too much detail here because you will see.
+                            <ul>
+                                <li><a href="//youtube.com/c/ThioJoe">Thio Joe</a></li>
+                                <li><a href="//youtube.com/user/rossmanngroup">Louis Rossmann</a></li>
+                                <li><a href="//youtube.com/channel/UCOyJD0RHtF_77_oAf5tT1nQ">Computer History Archives Project</a></li>
+                                <li><a href="//youtube.com/c/KitbogaShow">Kitboga</a></li>
+                                <li><a href="//youtube.com/c/adamantcomputers">Adam IT</a></li>
+                                <li><a href="//youtube.com/c/EevblogDave">EEVblog</a></li>
+                            </ul>
+                        </p>
+                        <h3>Electrical Engineering.</h3>
+                        <p>
+                            Want to see <a href="//youtube.com/c/Electroboom" data-link-external>ElectroBOOM</a> rage fixing his electrical systems? Go ahead and check it out.
+                            <ul>
+                                <li><a href="//youtube.com/c/BenEater">BenEater</a></li>
+                            </ul>
+                        </p>
+                        <h3>Home Renovation, Residential Electrical.</h3>
+                        <p>
+                            If you are a DIY type of person and interested in residential electricals, definitely go check out the channels listed below. You'll learn more than you do at universities I promise.
+                            <ul>
+                                <li><a href="//youtube.com/c/Theengineeringmindset" data-link-external>The Engineering Mindset</a></li>
+                                <li><a href="//youtube.com/c/ElectricianU" data-link-external>Electrician U</a></li>
+                                <li><a href="//youtube.com/c/BenjaminSahlstrom" data-link-external>Benjamin Sahlstrom</a></li>
+                                <li><a href="//youtube.com/c/SparkyChannel" data-link-external>Sparky Channel</a></li>
+                                <li><a href="//youtube.com/c/BETTERELECTRIC" data-link-external>BETTER ELECTRIC</a></li>
+                            </ul>
+                        </p>
+                        <h3>* Science.</h3>
+                        <p>
+                            Interested in general science? No worries I got ya back.
+                            <ul>
+                                <li><a href="//youtube.com/c/TechnologyConnections" data-link-external>TechnologyConnections</a></li>
+                                <li><a href="//youtube.com/c/TheActionLab" data-link-external>TheActionLab</a></li>
+                                <li><a href="//youtube.com/c/NileRed" data-link-external>NileRed</a></li>
+                                <li><a href="//youtube.com/c/TheBackyardScientist" data-link-external>TheBackyardScientist</a></li>
+                            </ul>
+                        </p>
+                    </article>
                 </section>
                 <section id="section-links-website">
                     <h2>About This <a href="//github.com/oakaigh/oakaigh.github.io" data-link-external>Website</a>.</h2>

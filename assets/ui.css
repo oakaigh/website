@@ -103,6 +103,36 @@
         text-align: center;
     }
 
+
+    /* UI Element: Timeline */
+    timeline {
+        --ui-timeline-header-width: 20%;
+    }
+
+    timeline {
+        display: table;
+    }
+
+    timeline timeline-group {
+        display: table-row;
+    }
+
+    timeline timeline-group timeline-header,
+    timeline timeline-group timeline-main {
+        display: table-cell;
+        padding: var(--ui-page-margin);
+    }
+
+    timeline timeline-group timeline-header {
+        text-align: right;
+        width: var(--ui-timeline-header-width);
+    }
+
+    timeline timeline-group timeline-main {
+        text-align: left;
+    }
+
+
     /* UI Element: Button */
     button {
         font: unset;
