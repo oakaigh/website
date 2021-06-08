@@ -51,6 +51,8 @@
 
         line-height: var(--line-text-height);
         word-wrap: var(--page-text-wrap);
+
+        min-height: 100vh;
     }
 
     body pre,
@@ -64,7 +66,7 @@
         position: sticky;
         top: 0;
 
-        height: 100vh;
+        height: fit-content;
         width: fit-content;
         max-width: var(--nav-width-max);
 
@@ -109,8 +111,6 @@
         grid-template-areas: 'nav' 'main';
         grid-template-columns: 100%;
         grid-template-rows: auto;
-
-        min-height: 100vh;
     }
 
     body[data-overflow] [data-overflow-hold] {
