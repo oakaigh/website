@@ -15,10 +15,8 @@
 ## Technology Summary.
 - **Languages**
 C/C++, JavaScript, Python, PHP. Bourne(-again) (`sh`, `bash`). Haskell. HTML.
-
 - **Operating Systems**
 CentOS, Ubuntu, and a vast majority of other Linux distros. MacOS. *BSD. Windows.
-
 - **Technical Tools**
 `gcc`, `gdb`, Google address sanitizer (`libasan`), `valgrind`, TCP/IP, `named`, `dnsmasq`, netfilter, `iptables`, Apache, Node.js, jQuery, websocket, SQLite, `numpy`, `opencv` (`python`), `pandas`.
 
