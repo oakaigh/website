@@ -1,6 +1,62 @@
 @font-face {
     font-family: 'Inconsolata';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 100;
+    src: url(inconsolata/fonts/ttf/Inconsolata-Thin.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 200;
+    src: url(inconsolata/fonts/ttf/Inconsolata-ExtraLight.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 300;
+    src: url(inconsolata/fonts/ttf/Inconsolata-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: url(inconsolata/fonts/ttf/Inconsolata-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 500;
+    src: url(inconsolata/fonts/ttf/Inconsolata-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 600;
+    src: url(inconsolata/fonts/ttf/Inconsolata-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
     src: url(inconsolata/fonts/ttf/Inconsolata-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 800;
+    src: url(inconsolata/fonts/ttf/Inconsolata-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 900;
+    src: url(inconsolata/fonts/ttf/Inconsolata-Black.ttf) format('truetype');
 }

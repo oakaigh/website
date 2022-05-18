@@ -1,6 +1,8 @@
-@font-face {
-    font-family: 'Lexend Deca';
-    font-style: normal;
-    font-weight: normal;
-    src: url(lexend/fonts/webfonts/LexendDeca-Regular.woff2) format('woff2');
-}
+@import 'deca.css';
+@import 'exa.css';
+@import 'giga.css';
+@import 'lexend.css';
+@import 'mega.css';
+@import 'peta.css';
+@import 'tera.css';
+@import 'zetta.css';

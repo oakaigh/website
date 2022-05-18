@@ -1,15 +1,20 @@
 [submodule "assets/fonts/font-awesome"]
 	path = assets/fonts/font-awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
+	branch = master
 [submodule "assets/fonts/lexend/css/lexend"]
 	path = assets/fonts/lexend/css/lexend
-	url = https://github.com/ThomasJockin/lexend.git
+	url = https://github.com/googlefonts/lexend.git
+	branch = main
 [submodule "assets/jquery"]
 	path = assets/jquery
 	url = https://github.com/jquery/jquery-dist.git
+	branch = main
 [submodule "assets/marked"]
 	path = assets/marked
 	url = https://github.com/markedjs/marked.git
+	branch = master
 [submodule "assets/fonts/inconsolata/css/inconsolata"]
 	path = assets/fonts/inconsolata/css/inconsolata
 	url = https://github.com/googlefonts/Inconsolata.git
+	branch = main

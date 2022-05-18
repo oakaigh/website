@@ -10,11 +10,8 @@
         <!-- PRELOADS -->
         <link rel="prefetch" as="image" href="assets/icon.svg">
         <link rel="preload" as="style" href="assets/fonts/lexend/css/all.css">
-        <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/lexend/css/lexend/fonts/webfonts/LexendDeca-Regular.woff2">
         <link rel="preload" as="style" href="assets/fonts/inconsolata/css/all.css">
-        <link rel="preload" as="font" type="font/ttf" crossorigin href="assets/fonts/inconsolata/css/inconsolata/fonts/ttf/Inconsolata-Bold.ttf">
         <link rel="preload" as="style" href="assets/fonts/font-awesome/css/all.css">
-        <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/font-awesome/webfonts/fa-solid-900.woff2">
         <link rel="preload" as="style" href="assets/body.css">
         <link rel="preload" as="style" href="assets/ui.css">
         <link rel="preload" as="style" href="assets/markdown.css">
@@ -71,10 +68,10 @@
                         'markdown': {
                             renderers: {
                                 'html': undefined,
-                                'markdown': marked
+                                'markdown': marked.parse
                             },
                             default_renderer: 'markdown'
-                        },
+                        },                            
                         'wait-requests': {
                             callback: function () {
                                 module_init({
@@ -171,7 +168,7 @@
                 <h1><i class="fas fa-fw fa-kiwi-bird"></i> About.</h1>
                 <article>
                     <p>
-                        Hello stranger! It's Jared. Jared is a second-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. Jared is also a developer, entrepreneur wannabe, DIY electrician, and music junky. Last but not least, Jared is human.
+                        Hello stranger! It's Jared. Jared is a third-year cognitive science major and the current owner of computer store Sparky & Geeks @ UCSD. Jared is also a developer, entrepreneur wannabe, DIY electrician, and music junky. Last but not least, Jared is human.
                     </p>
                     <h2>Engineering.</h2>
                     <p>
@@ -186,13 +183,15 @@
                         While not working or studying, I would go to the beach, hang out with friends, roll up joints (just kidding), and get drunk. While having fun I may also reflect on the rationalities behind human behaviors as part of my own life-long research project and develop understandings of the interrelationship between networked computer systems and human social networks, which I found in recent years quite fascinating.
                     </p>
                     <p>
-                        At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. Occasionally I make memes for gags and fun (check out the <a href="#section-goodies">Goodies</a> section! It's gonna be fun I promise!). I'm also a senior member of <a href="//reddit.com/r/UCSD" data-link-external>UCSD's official Reddit community</a>. (Welp just kidding. I joined Reddit in 2019 and I'm kinda ancient.)
+                        At home, I listen to songs all the time. I may fit into the definition of "music junky" since I'm generally very accepting of various music genres. My top genre according to Spotify is country, which isn't surprising because I like the "down-to-earth"-ness of country songs. I'm also a senior member of <a href="//reddit.com/r/UCSD" data-link-external>UCSD's official Reddit community</a>.
                     </p>
                 </article>
             </page>
             <page id="section-resume">
                 <h1><i class="fas fa-fw fa-clipboard-list"></i> Resume.</h1>
                 <article>
+                    <md src="media/resume.md" format="markdown"></md>
+                    <!--
                     <h2>Education.</h2>
                     <p>
                         <h3>Institutions.</h3>
@@ -228,6 +227,7 @@
                     <p>
                         Hands-on experience with server infrastructure management and fault-tolerant server-side application development and debugging (<code>gcc</code>, <code>gdb</code>, <code>lasan</code>, and <code>valgrind</code>) in UNIX systems.
                     </p>
+                    -->
                 </article>
             </page>
             <page id="section-projects">
@@ -296,7 +296,6 @@
                 <section id="section-projects-electrical">
                     <header><h2>Residential Electrical.</h2></header>
                     <p>
-                        I'm probably more of a handyman than an electrician (but I don't do plumbing or any socially abominable things like that). Plus, I'm not certified. I may not be well versed in the details of the National Electric Code but I know what to expect in general. As always anything I'm not sure or don't know, I ask google.
                     </p>
                 </section>
             </page>

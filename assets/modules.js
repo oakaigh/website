@@ -8,8 +8,8 @@ function module_args(args, defaults) {
 
 function module_init(conf) {
     for (const name in conf) {
-        var mod = modules[name];
-        var args = conf[name];
+        let mod = modules[name];
+        let args = conf[name];
 
         if (typeof mod !== 'function')
             throw new Error('Invalid module: ' + name);
@@ -18,10 +18,10 @@ function module_init(conf) {
 }
 
 function dependency_check(deps) {
-    for (var name in deps) {
-        var objects = deps[name];
-        for (var o in objects) {
-            var type = objects[o];
+    for (let name in deps) {
+        let objects = deps[name];
+        for (let o in objects) {
+            let type = objects[o];
             try {
                 o = eval(o);
                 if (typeof o != type) {
@@ -40,16 +40,19 @@ function dependency_check(deps) {
 dependency_check({
     'jquery': {$: 'function'}
 });
+$.fn.hasAttr = function (name) {  
+    let attr = this.attr(name);
+    return typeof attr !== 'undefined' && attr !== false;
+};
 
-
-modules['dom-defaults'] = function (args)
+modules['dom-defaults'] = function (_args)
 {
-    var args = module_args(args, {
+    let args = module_args(_args, {
         defaults: {}
     });
 
-    for (const element in args['defaults']) {
-        const conf = args['defaults'][element];
+    for (const element in args.defaults) {
+        const conf = args.defaults[element];
 
         for (const e of $(element).toArray()) {
             const o = $(e);
@@ -71,20 +74,20 @@ modules['dom-defaults'] = function (args)
     }
 };
 
-modules['anchor-target'] = function (args)
+modules['anchor-target'] = function (_args)
 {
-    var args = module_args(args, {
+    let args = module_args(_args, {
         target: $('[data-target-index]')
     });
 
     if ($(':target').length === 0) {
-        location.replace('#' + $(args['target']).attr('id'));
+        location.replace('#' + $(args.target).attr('id'));
     }
 };
 
-modules['markdown'] = function (args)
+modules['markdown'] = function (_args)
 {
-    var args = module_args(args, {
+    let args = module_args(_args, {
         renderers: undefined,
         default_renderer: undefined
     });
@@ -101,20 +104,23 @@ modules['markdown'] = function (args)
             render(o, selector);
         }
 
+        console.log(parent.find(selector));
         for (const e of parent.find(selector).toArray()) {
-            var o = $(e);
-            var src = o.attr(attr_src);
-            var renderer = o.attr(attr_format);
-            if (typeof renderer === 'undefined' || renderer === false)
-                renderer = args['default_renderer'];
-            renderer = args['renderers'][renderer];
+            let o = $(e);
 
-            if (typeof src === 'undefined' || src === false) {
-                render_fn(o, o.html(), renderer);
-            } else {
+            let renderer = args.renderers[
+                o.hasAttr(attr_format)
+                    ? o.attr(attr_format) 
+                    : args.default_renderer
+            ];
+
+            if (o.hasAttr(attr_src)) {
+                let src = o.attr(attr_src);
                 $.get(src, function (data) {
                     render_fn(o, data, renderer);
-                });
+                });                
+            } else {
+                render_fn(o, o.html(), renderer);
             }
         }
     }
@@ -122,12 +128,12 @@ modules['markdown'] = function (args)
     render($(document), 'md');
 };
 
-modules['wait-requests'] = function (args) {
-    var args = module_args(args, {
+modules['wait-requests'] = function (_args) {
+    let args = module_args(_args, {
         callback: undefined
     });
 
-    var callback = args['callback'];
+    let callback = args.callback;
     if (typeof callback !== 'undefined') {
         $(document).ajaxStop(callback);
     }

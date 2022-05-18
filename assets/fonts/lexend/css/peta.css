@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 100;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Thin.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 200;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-ExtraLight.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 300;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 400;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 500;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 600;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 700;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 800;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend Peta';
+    font-style: normal;
+    font-weight: 900;
+    src: url(lexend/fonts/peta/ttf/LexendPeta-Black.ttf) format('truetype');
+}
